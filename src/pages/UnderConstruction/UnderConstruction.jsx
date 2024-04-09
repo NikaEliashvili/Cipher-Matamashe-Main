@@ -17,18 +17,21 @@ export default function UnderConstruction() {
         </div>
         <div className="social-media-links">
           <a
+            className="link"
             href="https://www.facebook.com/profile.php?id=61550297651746"
             target="_blank"
           >
             <img src="/icons/facebook.svg" alt="FB" />
           </a>
           <a
+            className="link"
             href="https://www.instagram.com/matamashe/"
             target="_blank"
           >
             <img src="/icons/instagram.svg" alt="IG" />
           </a>
           <a
+            className="link"
             href="https://www.tiktok.com/@matamashe_"
             target="_blank"
           >

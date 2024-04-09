@@ -76,7 +76,11 @@
 
 }
 
-
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 @media (min-width: 470px) {
     .main-content {
@@ -176,11 +180,4 @@
     to {
         transform: rotateX(0deg);
     }
-}
-
-
-@keyframes logo-anim {
-    from {}
-
-    to {}
 }
