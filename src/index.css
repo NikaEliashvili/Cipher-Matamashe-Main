@@ -9,10 +9,19 @@
   --primary_bg: #050505
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Mersad;
   font-weight: 400;
   margin: 0;
+  min-height: 100vh;
+  color: white;
 }
 
 h1,
@@ -23,4 +32,14 @@ h5,
 h6,
 p {
   margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 2rem;
 }

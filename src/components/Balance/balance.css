@@ -1,0 +1,25 @@
+.balance {
+    background-color: #0B101C;
+    padding: 0 1.5rem;
+    height: 56px;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.balance .dollar_sign {
+    font-size: 1.3125rem;
+}
+
+.balance .dollar_sign,
+.balance .balance_amount {
+    margin-bottom: -4px;
+}
+
+.balance .balance_amount {
+    font-size: 1rem;
+    font-weight: 200;
+    color: rgba(255, 255, 255, 0.7);
+}

@@ -1,0 +1,87 @@
+.sidebar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #020409;
+    padding: 2rem 2.125rem;
+    /* min-height: fit-content !important; */
+    max-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.sidebar_frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 0.325rem;
+    height: 100%;
+}
+
+.sidebar_frame .line {
+    width: calc(100% + 0.65rem);
+    margin-left: -0.325rem;
+    height: 2px;
+    margin-top: 47px;
+    background: rgba(255, 255, 255, 0.06) !important;
+    border: none;
+
+}
+
+
+.sidebar_frame .routes {
+    height: 100%;
+    max-height: 356px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    margin-top: 47px;
+}
+
+.sidebar_frame .routes .icon {
+    padding: 2px;
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+}
+
+.sidebar_frame .routes .icon.active {
+    filter: brightness(10);
+    animation: activeRoute 1s ease-out 1;
+}
+
+.sidebar_frame .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: auto;
+    padding-top: 2rem;
+}
+
+.sidebar_frame .line.bottom {
+    margin-top: 35px;
+    margin-bottom: 32px;
+}
+
+.sidebar_frame .user-info .user-icon {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.09);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes activeRoute {
+    from {
+        filter: brightness(1);
+    }
+
+}

@@ -1,0 +1,16 @@
+.header {
+    width: 100% !important;
+    flex-grow: 1;
+    color: white;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.notification_Balace-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
