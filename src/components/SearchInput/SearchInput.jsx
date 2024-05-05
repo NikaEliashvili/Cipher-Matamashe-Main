@@ -1,4 +1,4 @@
-import "./SearchInput.css";
+import "./searchInput.css";
 import React, { useState } from "react";
 
 const SearchInput = () => {
