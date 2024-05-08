@@ -6,17 +6,23 @@
     flex-direction: row-reverse;
     align-items: center;
     justify-content: flex-start;
-    padding: 1rem;
+    padding: 0.625rem 1rem;
     border-radius: 0.75rem;
     gap: 1rem;
 }
 
 .search-input .search_icon {
-    width: 24px;
-    height: 24px;
-    padding: 3px;
+    width: 12px;
+    height: 12px;
+    padding: 0px;
     filter: brightness(1) opacity(0.5);
     transition: all 0.3s ease-out;
+}
+
+.search-input .search_icon img {
+    width: 12px;
+    height: 12px;
+    aspect-ratio: 1/1;
 }
 
 .search-input input {
@@ -24,7 +30,7 @@
     border: none;
     font-family: inherit;
     font-weight: 100;
-    font-size: 1rem;
+    font-size: 0.75rem;
     color: #85878D;
     width: 100%;
     transition: all 0.3s ease-out;
@@ -33,7 +39,7 @@
 .search-input input::placeholder {
     font-family: inherit;
     font-weight: 100;
-    font-size: 1rem;
+    font-size: 0.75rem;
     transition: all 0.3s ease-out;
 }
 
@@ -51,4 +57,61 @@
     opacity: 1;
     filter: brightness(100) opacity(1);
     transition: all 0.3s ease-out;
+}
+
+@media (min-width: 1280px) {
+    .search-input {
+        max-width: 516px;
+        width: fit-content;
+        background: #0B101C;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 1rem;
+        border-radius: 0.75rem;
+        gap: 1rem;
+    }
+
+    .search-input .search_icon {
+        width: 24px;
+        height: 24px;
+        padding: 3px;
+        filter: brightness(1) opacity(0.5);
+        transition: all 0.3s ease-out;
+    }
+
+    .search-input input {
+        background: none;
+        border: none;
+        font-family: inherit;
+        font-weight: 100;
+        font-size: 1rem;
+        color: #85878D;
+        width: 100%;
+        transition: all 0.3s ease-out;
+    }
+
+    .search-input input::placeholder {
+        font-family: inherit;
+        font-weight: 100;
+        font-size: 1rem;
+        transition: all 0.3s ease-out;
+    }
+
+    .search-input input:focus::placeholder {
+        color: white;
+    }
+
+    .search-input input:focus {
+        outline: none;
+        color: white;
+        width: 444px;
+    }
+
+    .search-input input:focus+.search_icon {
+        opacity: 1;
+        filter: brightness(100) opacity(1);
+        transition: all 0.3s ease-out;
+    }
 }

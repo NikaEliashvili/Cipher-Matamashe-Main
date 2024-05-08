@@ -1,5 +1,5 @@
 import "./notificationButton.css";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const notificationsArr = [
   {
@@ -23,38 +23,65 @@ const notificationsArr = [
 ];
 
 const NotificationButton = () => {
+  const ref = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [isOpening, setIsOpening] = useState(false);
   const [notifications, setNotification] = useState(notificationsArr);
 
   const handleOpen = () => {
-    if (isOpen) {
-      setIsClosing(true);
-      setTimeout(() => {
-        setIsOpen(false);
-        setIsClosing(false);
-      }, 300);
-    } else {
-      setIsOpening(true);
-      setTimeout(() => {
-        setIsOpen(true);
-        setIsOpening(false);
-      }, 300);
-    }
+    setIsOpening(true);
+    setTimeout(() => {
+      setIsOpen(true);
+      setIsOpening(false);
+    }, 300);
   };
 
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsOpen(false);
+      setIsClosing(false);
+    }, 300);
+  };
+
+  useEffect(() => {
+    /**Write a function which makes isOpen to false if user clicks outside the ref */
+
+    const handleOutsideClick = (e) => {
+      if (!ref.current.contains(e.target)) {
+        handleClose();
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () =>
+      document.removeEventListener("mousedown", handleOutsideClick);
+  }, []);
+
   return (
-    <div className="notification-centre">
-      <div className="notification-btn" onClick={handleOpen}>
-        <img src="/icons/bell.svg" width={24} height={24} alt="" />
+    <div ref={ref} className="notification-centre">
+      <div
+        className="notification-btn"
+        onClick={isOpen ? handleClose : handleOpen}
+      >
+        <img
+          src="/icons/bell.svg"
+          className="bell_icon"
+          width={24}
+          height={24}
+          alt=""
+        />
         {!isOpen && notifications && notifications?.length > 0 && (
           <div
             className={
               "notification-count " + (isOpening ? "close" : "")
             }
           >
-            {notifications.length}
+            <span className="notification_number">
+              {notifications.length}
+            </span>
           </div>
         )}
       </div>
