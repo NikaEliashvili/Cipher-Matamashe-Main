@@ -3,9 +3,14 @@ import NotificationButton from "../NotificationButton/NotificationButton";
 import SearchInput from "../SearchInput/SearchInput";
 import "./header.css";
 import React, { useEffect, useState } from "react";
-import Logo from "../Logo/Logo";
+import useSidebarStore from "../../store/sidebarStore";
+import { BREAK_POINT } from "../../constants/constants";
 const Header = () => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const toggleSidebar = useSidebarStore(
+    (state) => state.toggleSidebar
+  );
+
   useEffect(() => {
     const handleResize = () => {
       setScreenWidth(window.innerWidth);
@@ -16,10 +21,13 @@ const Header = () => {
 
   return (
     <div className="header">
-      {screenWidth > 768 ? (
+      {screenWidth > BREAK_POINT ? (
         <SearchInput />
       ) : (
-        <img src="/images/logos/logo_white.svg" />
+        <div className="menu_btn" onClick={toggleSidebar}>
+          <img src="/images/logos/logo_white.svg" />
+          <span className="menu_text">Menu</span>
+        </div>
       )}
       <div className="notification_Balace-container">
         <NotificationButton />

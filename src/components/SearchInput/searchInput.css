@@ -1,3 +1,16 @@
+@media (max-width: 768px) {
+    .search-input {
+        width: 100% !important;
+    }
+
+    .search-input input:focus {
+        outline: none;
+        color: white;
+        width: 100% !important;
+        flex-grow: 1;
+    }
+}
+
 .search-input {
     max-width: 516px;
     width: fit-content;
@@ -77,8 +90,17 @@
         width: 24px;
         height: 24px;
         padding: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         filter: brightness(1) opacity(0.5);
         transition: all 0.3s ease-out;
+    }
+
+    .search-input .search_icon img {
+        width: 18px;
+        height: 18px;
+
     }
 
     .search-input input {

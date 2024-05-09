@@ -60,22 +60,21 @@
     display: grid;
     grid: 'a a a b  b';
     width: 100%;
-    min-height: 250px;
-    max-height: 600px;
+    min-height: fit-content;
     grid-gap: 1rem;
 }
 
 .home_page .cards_container .main_card,
 .home_page .cards_container .secondary_card {
     position: relative;
-    max-width: 100%;
-    max-height: 100%;
+    height: 100%;
     background: #0B101C;
     border-radius: 0.75rem;
     display: flex;
     align-items: center;
     justify-content: center;
     object-fit: cover;
+    overflow: hidden;
 }
 
 .home_page .cards_container .main_card::before,
@@ -97,6 +96,10 @@
 
 .home_page .cards_container .main_card img.image,
 .home_page .cards_container .secondary_card img.image {
+    position: absolute;
+    inset: 0;
+    min-width: 100%;
+    min-height: 100%;
     width: 100%;
     height: 100%;
     object-position: center;
@@ -105,8 +108,11 @@
 
 .home_page .cards_container .main_card .card_content,
 .home_page .cards_container .secondary_card .card_content {
-    position: absolute;
-    inset: 0;
+    /* position: absolute;
+    inset: 0; */
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
     padding: 1.125rem 0.5rem;
     z-index: +10;
     display: flex;
@@ -191,6 +197,7 @@
     height: 100%;
     display: flex;
     flex-direction: column-reverse;
+    flex-grow: 1;
 }
 
 .home_page .cards_container .main_card .card_content .price_tags_container .price_container {
@@ -283,12 +290,14 @@
 
     .home_page .cards_container .swiper {
         overflow: hidden;
+        width: 100%;
     }
 
     .home_page .cards_container .main.appear {
         display: flex;
         transform-origin: left;
         animation: appearMain 0.3s ease-out 1;
+        width: 100%;
     }
 
     .home_page .cards_container .main.disappear {
@@ -301,7 +310,12 @@
     .home_page .cards_container .secondary.appear {
         display: flex;
         transform-origin: right;
+        width: 100%;
         animation: appearSecondary 0.3s ease-out 1;
+    }
+
+    .home_page .cards_container .secondary_card {
+        width: 100% !important;
     }
 
     .home_page .cards_container .secondary.disappear {
@@ -313,13 +327,11 @@
     @keyframes appearMain {
         from {
             filter: opacity(0);
-            /* transform: scaleX(0); */
             transform: translateX(-40%);
         }
 
         to {
             filter: opacity(1);
-            /* transform: scaleX(1); */
             transform: translateX(0);
         }
     }
@@ -327,13 +339,11 @@
     @keyframes disappearMain {
         from {
             filter: opacity(1);
-            /* transform: scaleX(1); */
             transform: translateX(0);
         }
 
         to {
             filter: opacity(0);
-            /* transform: scaleX(0); */
             transform: translateX(-40%);
         }
     }
@@ -341,13 +351,11 @@
     @keyframes appearSecondary {
         from {
             filter: opacity(0);
-            /* transform: scaleX(0); */
             transform: translateX(40%);
         }
 
         to {
             filter: opacity(1);
-            /* transform: scaleX(1); */
             transform: translateX(0);
         }
     }
@@ -355,13 +363,11 @@
     @keyframes disappearSecondary {
         from {
             filter: opacity(1);
-            /* transform: scaleX(1); */
             transform: translateX(0);
         }
 
         to {
             filter: opacity(0);
-            /* transform: scaleX(0); */
             transform: translateX(40%);
         }
     }
@@ -396,10 +402,9 @@
     .home_page .cards_container {
         margin-top: 1.5rem;
         display: grid;
-        grid: 'a a b';
+        grid: 'a a a b b';
         width: 100%;
         min-height: 250px;
-        max-height: 600px;
         grid-gap: 1rem;
     }
 
@@ -435,6 +440,7 @@
 
     .home_page .cards_container .main_card img.image,
     .home_page .cards_container .secondary_card img.image {
+        position: inherit;
         width: 100%;
         height: 100%;
         object-position: center;
@@ -514,6 +520,8 @@
 
     .home_page .cards_container .secondary_card .card_content .description {
         max-width: 100%;
+        /* height: 200px; */
+
     }
 
     .home_page .cards_container .main_card .card_content .price_tags_container {

@@ -1,3 +1,4 @@
+import { BREAK_POINT } from "../../constants/constants";
 import "./home.css";
 import React, { useEffect, useState } from "react";
 
@@ -7,12 +8,13 @@ const Home = () => {
   useEffect(() => {
     const handleResize = () => {
       setScreenWidth(window.innerWidth);
+      if (window.innerWidth > BREAK_POINT && cardView !== 1) {
+        setCardView(1);
+      }
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  const hidden = { display: "none" };
 
   return (
     <div className="home_page">
@@ -20,7 +22,7 @@ const Home = () => {
         <h1 className="title">ახალი გამოსული თამაშები</h1>
         <span className="subtitle">ყველა ჟანრში</span>
       </div>
-      {screenWidth <= 768 && (
+      {screenWidth <= BREAK_POINT && (
         <div className="card_arrows">
           <button
             className="arrow"
@@ -51,7 +53,7 @@ const Home = () => {
         </div>
       )}
       <div className="cards_container">
-        {screenWidth > 768 ? (
+        {screenWidth > BREAK_POINT ? (
           <>
             {mainCard}
             {SecondaryCard}
