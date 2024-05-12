@@ -1,24 +1,34 @@
 .sidebar {
     position: absolute;
     inset: 0;
-    z-index: +1000;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     background: url('/images/bg-texture-plain.svg');
     background-color: #020409;
-    /* padding: 2rem 2.125rem; */
     width: 100%;
     max-height: 100vh;
     overflow-y: auto;
-    overflow-x: hidden;
-    animation: openSidebar 0.3s ease-out 1;
+    /* overflow-x: hidden; */
+    transition: all 300ms 0ms ease-out;
 }
 
-.sidebar.closing {
-    animation: closeSidebar 0.3s ease-in 1;
+@media screen and (max-width: 768px) {
+    .sidebar {
+        z-index: -1;
+        filter: brightness(0);
+        transform: translate3d(-100%, 0, 0);
+    }
+
+
+    .sidebar.open {
+        filter: brightness(1);
+        transform: translate3d(0, 0, 0);
+        z-index: +1000;
+    }
 }
+
 
 
 .sidebar_frame {
@@ -74,6 +84,7 @@
 }
 
 .sidebar_frame .routes .icon {
+    position: relative;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -83,6 +94,16 @@
     transition: all 0.5s ease-out;
 }
 
+.sidebar_frame .routes .icon.active::before {
+    content: "";
+    position: absolute;
+    bottom: -0.75rem;
+    left: -3px;
+    height: 2px;
+    width: 24px;
+    background: #67EB73;
+    border-radius: 1rem;
+}
 
 .sidebar_frame .routes .icon img {
     width: 18px;
@@ -102,6 +123,8 @@
     filter: brightness(10);
     animation: activeRoute 1s ease-out 1;
 }
+
+
 
 .sidebar_frame .user-info {
     width: fit-content;
@@ -166,46 +189,43 @@
     justify-content: center;
 }
 
-@keyframes openSidebar {
-    from {
-        transform: translateX(-100%);
+
+@media screen and (min-width: 768px) {
+
+    .help_btn_abbr {
+        position: absolute;
+        background: rgba(250, 157, 70, 0.08);
+        color: #FA9D46;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.475rem 1.125rem 0.375rem;
+        border-radius: 0.875rem 1.875rem 1.875rem 0.125rem;
+        z-index: -1;
+        filter: opacity(0);
+        font-size: 0.625rem;
+        font-weight: 100 !important;
+        transition: filter 0.3s 0.15s ease-out, z-index 0.3s 0.15s ease-out;
     }
 
-    to {
-        transform: translate(0);
+    /* .help_btn_abbr .help_btn_abbr_text {} */
+
+    .help_btn_abbr.open {
+        z-index: +999999;
+        filter: opacity(1);
     }
-}
-
-@keyframes closeSidebar {
-    from {
-        filter: brightness(1);
-        transform: translateX(0%);
-    }
-
-    to {
-        filter: brightness(0);
-        transform: translate(-100%);
-    }
-}
-
-
-
-@media (min-width: 768px) {
 
     .sidebar {
-        position: sticky;
+        position: sticky !important;
         top: 0;
         display: flex;
-        flex-direction: column;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: center;
         background: none;
         background-color: #020409;
-        padding: 2rem 2.125rem;
         max-height: 100vh;
-        width: fit-content !important;
-        overflow-y: auto;
-        overflow-x: hidden;
+        padding: 2rem 0;
+        width: 85px !important;
         animation: none;
     }
 
@@ -214,56 +234,117 @@
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        padding: 0 0.325rem;
+        padding: 0rem;
         height: 100%;
-        width: fit-content !important;
+        width: 56px !important;
+        overflow-y: auto;
+        z-index: 1;
+    }
+
+
+
+
+    .sidebar_frame .main_logo {
+        position: sticky;
+        top: 0;
     }
 
     .sidebar_frame .line {
-        width: calc(100% + 0.65rem);
-        margin-left: -0.325rem;
+        all: unset;
+        width: 100%;
         height: 2px;
         margin-top: 47px;
         background: rgba(255, 255, 255, 0.06) !important;
         border: none;
-
     }
 
 
     .sidebar_frame .routes {
         height: 100%;
         max-height: 356px;
+        width: fit-content;
+        margin: 0 auto;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
         color: white;
         margin-top: 47px;
+        padding: 0;
     }
 
     .sidebar_frame .routes .icon {
         padding: 2px;
         cursor: pointer;
         transition: all 0.5s ease-out;
+        position: relative;
+        margin-bottom: 1rem;
     }
 
-    .sidebar_frame .routes .icon.active {
+    .sidebar_frame .routes .icon.active::before {
+        all: unset;
+        content: "";
+        position: absolute;
+        inset: 0;
+        top: 100%;
+        width: 100%;
+        margin-top: 0.75rem;
+        height: 2px;
+        border-radius: 2rem;
+        background: #67EB73;
+        transition: all 0.3s ease-out;
+    }
+
+
+    .sidebar_frame .routes .icon img {
+        aspect-ratio: 1/1 !important;
+    }
+
+
+
+
+    .sidebar_frame .routes .icon:hover img {
+        filter: brightness(1.7);
+        animation: activeRoute 1s ease-out 1;
+    }
+
+    .sidebar_frame .routes .icon.active img {
         filter: brightness(10);
         animation: activeRoute 1s ease-out 1;
     }
 
     .sidebar_frame .user-info {
+        width: 100% !important;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: space-between;
         margin-top: auto;
-        padding-top: 2rem;
+        padding-top: 0 !important;
+        margin-left: 0;
+        gap: 1rem;
+        height: clamp(50px, 128px, 140px);
     }
 
+    .sidebar_frame .user-info .help_btn {
+        padding: 0.375rem;
+        filter: opacity(0.85);
+        transition: all 0.3s ease-out;
+        cursor: pointer;
+    }
+
+    .sidebar_frame .user-info .help_btn:hover {
+        filter: opacity(1);
+    }
+
+
+
     .sidebar_frame .line.bottom {
-        margin-top: 35px;
-        margin-bottom: 32px;
+        all: unset;
+        width: 100%;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.06) !important;
+        border: none;
     }
 
     .sidebar_frame .user-info .user-icon {

@@ -25,7 +25,10 @@ const Header = () => {
         <SearchInput />
       ) : (
         <div className="menu_btn" onClick={toggleSidebar}>
-          <img src="/images/logos/logo_white.svg" />
+          <img
+            className="matamashe_logo"
+            src="/images/logos/Logo.png"
+          />
           <span className="menu_text">Menu</span>
         </div>
       )}

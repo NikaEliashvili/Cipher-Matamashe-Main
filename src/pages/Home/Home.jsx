@@ -5,6 +5,12 @@ import React, { useEffect, useState } from "react";
 const Home = () => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [cardView, setCardView] = useState(1);
+  const [consoleCategory, setConsoleCategory] = useState("PS4");
+
+  const handleConsoleCategory = (value) => {
+    setConsoleCategory(value);
+  };
+
   useEffect(() => {
     const handleResize = () => {
       setScreenWidth(window.innerWidth);
@@ -78,6 +84,24 @@ const Home = () => {
             </div>
           </div>
         )}
+      </div>
+      <div className="chooseCategory_container">
+        <div
+          onClick={() => handleConsoleCategory("PS4")}
+          className={
+            "category " + (consoleCategory === "PS4" ? "active" : "")
+          }
+        >
+          <span>PlayStation 4</span>
+        </div>
+        <div
+          onClick={() => handleConsoleCategory("PS5")}
+          className={
+            "category " + (consoleCategory === "PS5" ? "active" : "")
+          }
+        >
+          <span>PlayStation 5</span>
+        </div>
       </div>
     </div>
   );

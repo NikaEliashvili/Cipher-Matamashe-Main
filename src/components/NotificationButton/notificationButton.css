@@ -53,7 +53,7 @@
     height: fit-content;
     max-height: calc(100vh - 10rem);
     max-width: 458px;
-    width: 100vw;
+    width: calc(100vw - 2.5rem) !important;
     margin-top: 0.5rem;
     overflow-y: auto;
     background-color: #0B101C;
@@ -130,6 +130,16 @@
     font-weight: 200;
     font-size: 1rem;
 }
+
+@media (max-width: 450px) {
+
+    html,
+    body {
+        font-size: 14px !important;
+    }
+}
+
+
 
 @media (min-width: 390px) {
 
@@ -266,6 +276,8 @@
         font-size: 1rem;
     }
 }
+
+
 
 
 @media (min-width: 1280px) {
