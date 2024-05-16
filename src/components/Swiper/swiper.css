@@ -1,0 +1,80 @@
+.swiper {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8125rem;
+}
+
+.swiper-container {
+    display: flex;
+    gap: 0.5rem;
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    /* For smooth scrolling on iOS */
+
+    /* Hide scrollbar */
+
+    /* For Firefox */
+    scrollbar-width: none;
+    /* For Internet Explorer and Edge */
+    -ms-overflow-style: none;
+}
+
+.swiper-container::-webkit-scrollbar {
+    /* For Chrome, Safari, and Opera */
+    display: none;
+}
+
+.swiper-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+}
+
+.swiper-slide>* {
+    transition: transform 0.35s ease-out, filter 0.35s ease-out;
+
+}
+
+.swiper-slide.inActive>* {
+    transform: scale(0.8);
+    filter: brightness(0.5) opacity(0.5) blur(1px);
+}
+
+.swiper_arrows {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.4375rem;
+}
+
+.swiper_arrows .arrow {
+    all: unset;
+    width: 40px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.425rem;
+    background: rgba(255, 255, 255, 0.09);
+    transition: all 0.125s ease-out;
+}
+
+.swiper_arrows .arrow:hover {
+    filter: brightness(0.8);
+    cursor: pointer;
+}
+
+.swiper_arrows .arrow:disabled {
+    filter: brightness(0.2);
+}
+
+
+
+/* .swiper_arrows .arrow:disabled {
+
+} */

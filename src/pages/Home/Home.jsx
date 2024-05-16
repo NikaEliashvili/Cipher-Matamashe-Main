@@ -1,11 +1,36 @@
+import Swiper from "../../components/Swiper/Swiper";
 import { BREAK_POINT } from "../../constants/constants";
 import "./home.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const Home = () => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const [cardView, setCardView] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [totalSlides, setTotalSlides] = useState(0);
   const [consoleCategory, setConsoleCategory] = useState("PS4");
+  const swiperContainerRef = useRef(null);
+
+  useEffect(() => {
+    if (swiperContainerRef.current) {
+      setTotalSlides(swiperContainerRef.current.children.length);
+    }
+  }, []);
+
+  const handleScroll = (direction) => {
+    const container = swiperContainerRef.current;
+    const scrollAmount = container.clientWidth;
+
+    if (direction === "left" && currentIndex > 0) {
+      container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      setCurrentIndex(currentIndex - 1);
+    } else if (
+      direction === "right" &&
+      currentIndex < totalSlides - 1
+    ) {
+      container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      setCurrentIndex(currentIndex + 1);
+    }
+  };
 
   const handleConsoleCategory = (value) => {
     setConsoleCategory(value);
@@ -14,9 +39,6 @@ const Home = () => {
   useEffect(() => {
     const handleResize = () => {
       setScreenWidth(window.innerWidth);
-      if (window.innerWidth > BREAK_POINT && cardView !== 1) {
-        setCardView(1);
-      }
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -28,14 +50,14 @@ const Home = () => {
         <h1 className="title">ახალი გამოსული თამაშები</h1>
         <span className="subtitle">ყველა ჟანრში</span>
       </div>
-      {screenWidth <= BREAK_POINT && (
+      {/* {screenWidth <= BREAK_POINT && (
         <div className="card_arrows">
           <button
             className="arrow"
             onClick={() => {
-              setCardView(1);
+              handleScroll("left");
             }}
-            disabled={cardView === 1}
+            disabled={currentIndex === 0}
           >
             <img
               style={{ transform: "rotate(180deg)", width: "6px" }}
@@ -46,9 +68,9 @@ const Home = () => {
           <button
             className="arrow"
             onClick={() => {
-              setCardView(2);
+              handleScroll("right");
             }}
-            disabled={cardView === 2}
+            disabled={currentIndex === totalSlides - 1}
           >
             <img
               style={{ width: "6px" }}
@@ -57,7 +79,7 @@ const Home = () => {
             />
           </button>
         </div>
-      )}
+      )} */}
       <div className="cards_container">
         {screenWidth > BREAK_POINT ? (
           <>
@@ -65,24 +87,10 @@ const Home = () => {
             {SecondaryCard}
           </>
         ) : (
-          <div className="swiper">
-            <div
-              className={
-                cardView === 1 ? "main appear" : "main disappear"
-              }
-            >
-              {mainCard}
-            </div>
-            <div
-              className={
-                cardView === 2
-                  ? "secondary appear"
-                  : "secondary disappear"
-              }
-            >
-              {SecondaryCard}
-            </div>
-          </div>
+          <Swiper>
+            {mainCard}
+            {SecondaryCard}
+          </Swiper>
         )}
       </div>
       <div className="chooseCategory_container">
