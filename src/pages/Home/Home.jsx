@@ -1,48 +1,16 @@
 import Swiper from "../../components/Swiper/Swiper";
 import { BREAK_POINT } from "../../constants/constants";
+import useScreenStore from "../../store/useScreenStore";
 import "./home.css";
 import React, { useEffect, useRef, useState } from "react";
 
 const Home = () => {
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [totalSlides, setTotalSlides] = useState(0);
+  const screenWidth = useScreenStore((state) => state.screenWidth);
   const [consoleCategory, setConsoleCategory] = useState("PS4");
-  const swiperContainerRef = useRef(null);
-
-  useEffect(() => {
-    if (swiperContainerRef.current) {
-      setTotalSlides(swiperContainerRef.current.children.length);
-    }
-  }, []);
-
-  const handleScroll = (direction) => {
-    const container = swiperContainerRef.current;
-    const scrollAmount = container.clientWidth;
-
-    if (direction === "left" && currentIndex > 0) {
-      container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-      setCurrentIndex(currentIndex - 1);
-    } else if (
-      direction === "right" &&
-      currentIndex < totalSlides - 1
-    ) {
-      container.scrollBy({ left: scrollAmount, behavior: "smooth" });
-      setCurrentIndex(currentIndex + 1);
-    }
-  };
 
   const handleConsoleCategory = (value) => {
     setConsoleCategory(value);
   };
-
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   return (
     <div className="home_page">
@@ -50,36 +18,7 @@ const Home = () => {
         <h1 className="title">ახალი გამოსული თამაშები</h1>
         <span className="subtitle">ყველა ჟანრში</span>
       </div>
-      {/* {screenWidth <= BREAK_POINT && (
-        <div className="card_arrows">
-          <button
-            className="arrow"
-            onClick={() => {
-              handleScroll("left");
-            }}
-            disabled={currentIndex === 0}
-          >
-            <img
-              style={{ transform: "rotate(180deg)", width: "6px" }}
-              src="/icons/arrow.svg"
-              alt=""
-            />
-          </button>
-          <button
-            className="arrow"
-            onClick={() => {
-              handleScroll("right");
-            }}
-            disabled={currentIndex === totalSlides - 1}
-          >
-            <img
-              style={{ width: "6px" }}
-              src="/icons/arrow.svg"
-              alt=""
-            />
-          </button>
-        </div>
-      )} */}
+
       <div className="cards_container">
         {screenWidth > BREAK_POINT ? (
           <>
@@ -110,6 +49,12 @@ const Home = () => {
         >
           <span>PlayStation 5</span>
         </div>
+      </div>
+      <div className="video_games_container">
+        <h2 className="video_games_title">
+          {consoleCategory} ვიდეო თამაშები
+        </h2>
+        <h6 className="video_games_subtitle">ყველა ჟანრში</h6>
       </div>
     </div>
   );

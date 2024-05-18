@@ -6,9 +6,13 @@ import Layout from "./components/Layout/Layout";
 import Gifts from "./pages/Gifts/Gifts";
 import History from "./pages/History/History";
 import Information from "./pages/Information/Information";
-import Search from "./pages/Search/Search";
+import HelpCentre from "./pages/HelpCentre/HelpCentre";
+import Profile from "./pages/Profile/Profile";
+import useScreenWidth from "./hooks/useScreenWidth";
+import SearchResult from "./pages/SearchResult/SearchResult";
 
 function App() {
+  useScreenWidth();
   return (
     <BrowserRouter>
       <Routes>
@@ -18,7 +22,9 @@ function App() {
           <Route path="gifts" element={<Gifts />} />
           <Route path="history" element={<History />} />
           <Route path="info" element={<Information />} />
-          <Route path="search" element={<Search />} />
+          <Route path="help_center" element={<HelpCentre />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="search" element={<SearchResult />} />
         </Route>
       </Routes>
     </BrowserRouter>

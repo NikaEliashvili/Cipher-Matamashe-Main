@@ -47,6 +47,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    transition: all 0.3s ease-out;
+}
+
+.sidebar_frame .sidebar_header:hover {
+    filter: brightness(1.5);
 }
 
 .sidebar_frame .sidebar_header .sidebar_close .close_btn {
@@ -83,29 +88,48 @@
     padding-left: 0.3125rem;
 }
 
-.sidebar_frame .routes .icon {
+.sidebar_frame .routes .route {
     position: relative;
     display: flex;
-    align-items: flex-start;
+    align-items: flex-end;
     justify-content: flex-start;
     text-decoration: none;
     gap: 2.5rem;
     width: 100%;
+    cursor: pointer;
     transition: all 0.5s ease-out;
 }
 
-.sidebar_frame .routes .icon.active::before {
+.sidebar_frame .routes .route .icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px !important;
+    height: 24px !important;
+    transition: all 0.3s ease-out;
+}
+
+.sidebar_frame .routes .route:hover .icon {
+    filter: brightness(1.75);
+}
+
+.sidebar_frame .routes .route.active .icon img {
+    filter: brightness(100);
+}
+
+.sidebar_frame .routes .route.active .icon::before {
     content: "";
     position: absolute;
-    bottom: -0.75rem;
-    left: -3px;
+    inset: 0;
+    top: 100%;
+    margin-top: 0.5rem;
     height: 2px;
-    width: 24px;
     background: #67EB73;
     border-radius: 1rem;
 }
 
-.sidebar_frame .routes .icon img {
+.sidebar_frame .routes .route .icon {
     width: 18px;
     height: 18px;
     aspect-ratio: 1/1;
@@ -143,7 +167,7 @@
     justify-content: center;
     gap: 28px;
     margin-bottom: 2rem;
-
+    transition: all 0.3s ease-out;
 }
 
 .sidebar_frame .user-info .title {
@@ -158,12 +182,17 @@
     justify-content: center;
     align-items: center;
     padding-bottom: 0.325rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.06);
 }
 
 .sidebar_frame .user-info .help_icon {
-    margin-left: 0.25rem;
     aspect-ratio: 1/1 !important;
+    width: 18px;
+    height: 18px;
+}
+
+.sidebar_frame .user-info .help_center:hover .help_icon-container {
+    filter: saturate(1.35);
 }
 
 .sidebar_frame .line.bottom {
@@ -179,6 +208,7 @@
     margin-left: 0.625rem;
 }
 
+
 .sidebar_frame .user-info .user-icon {
     width: 40px;
     height: 40px;
@@ -187,6 +217,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s ease-out;
+}
+
+.sidebar_frame .user-info .profile:hover .user-icon {
+    background-color: rgba(255, 255, 255, 0.14);
 }
 
 
@@ -280,6 +315,7 @@
         position: relative;
         margin-bottom: 1rem;
     }
+
 
     .sidebar_frame .routes .icon.active::before {
         all: unset;

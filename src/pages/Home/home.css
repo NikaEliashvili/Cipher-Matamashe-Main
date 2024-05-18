@@ -80,7 +80,6 @@
 .home_page .cards_container .secondary_card .card_content {
     width: 100%;
     height: 100%;
-    min-height: 250px;
     padding: 1.125rem 0.5rem;
     z-index: +10;
     display: flex;
@@ -283,8 +282,37 @@
 }
 
 
+.home_page .video_games_container {
+    font-size: 1rem;
+}
 
 
+.home_page .video_games_title {
+    font-size: 0.9375em;
+    font-weight: 900;
+    color: #ffffff;
+    margin-left: 0.875rem;
+    margin-top: 3.625em;
+}
+
+.home_page .video_games_subtitle {
+    margin-left: 0.875rem;
+    margin-top: 0.35em;
+    font-size: 0.75em;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+@media screen and (max-width: 390px) {
+    .home_page .video_games_container {
+        font-size: 1.25rem;
+    }
+
+    .home_page .video_games_title {
+        font-weight: 600;
+    }
+
+}
 
 
 

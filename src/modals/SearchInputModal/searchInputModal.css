@@ -1,0 +1,52 @@
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 10000;
+    overflow: hidden;
+    transition: all 0.3s ease-out;
+}
+
+
+.modal {
+    background: transparent;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1.25rem;
+    margin-right: 1.625rem;
+    width: 100%;
+    filter: brightness(0);
+    z-index: 10001;
+    backface-visibility: hidden;
+    transform: translate3d(0, calc(-100% - 5rem), 0);
+    -webkit-font-smoothing: subpixel-antialiased;
+    transition: all 0.35s ease-in;
+}
+
+.modal.open {
+    filter: brightness(1);
+    transform-origin: bottom;
+    backface-visibility: hidden;
+    transform: translate3d(0, 230%, 0);
+    -webkit-font-smoothing: subpixel-antialiased;
+    transition: all 0.35s cubic-bezier(0, 1.56, .59, .85);
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}

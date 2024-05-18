@@ -1,16 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./sidebar.css";
 import { NavLink } from "react-router-dom";
-import useSidebarStore from "../../store/sidebarStore";
+import useuseSidebarStore from "../../store/useSidebarStore";
 import { BREAK_POINT } from "../../constants/constants";
+import useScreenStore from "../../store/useScreenStore";
 
 const Sidebar = () => {
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const screenWidth = useScreenStore((state) => state.screenWidth);
   const containerRef = useRef(null);
   const [position, setPosition] = useState(null);
   const [isAbbrOpen, setIsAbbrOpen] = useState(false);
-  const isOpen = useSidebarStore((state) => state.isOpen);
-  const toggleSidebar = useSidebarStore(
+  const isOpen = useuseSidebarStore((state) => state.isOpen);
+  const toggleSidebar = useuseSidebarStore(
     (state) => state.toggleSidebar
   );
 
@@ -28,22 +29,14 @@ const Sidebar = () => {
   };
 
   const closeAbbr = () => {
-    // setTimeout(() => {
     setIsAbbrOpen(false);
-    // }, 500);
   };
 
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > BREAK_POINT && isOpen) {
-        toggleSidebar();
-      }
-      setScreenWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    if (screenWidth > BREAK_POINT && isOpen) {
+      toggleSidebar();
+    }
+  }, [screenWidth]);
 
   return screenWidth > BREAK_POINT ? (
     <>
@@ -177,113 +170,124 @@ const Sidebar = () => {
           <NavLink
             to={"/"}
             className={({ isActive }) =>
-              isActive ? "icon active" : "icon"
+              isActive ? "route active" : "route"
             }
             onClick={toggleSidebar}
           >
-            <img
-              width={16}
-              height={16}
-              src="/icons/home.svg"
-              alt=""
-            />
+            <div className="icon">
+              <img
+                width={16}
+                height={16}
+                src="/icons/home.svg"
+                alt=""
+              />
+            </div>
             <span className="route_name">მთავარი</span>
           </NavLink>
           <NavLink
             to={"products"}
             className={({ isActive }) =>
-              isActive ? "icon active" : "icon"
+              isActive ? "route active" : "route"
             }
             onClick={toggleSidebar}
           >
-            <img
-              width={16}
-              height={16}
-              src="/icons/basket.svg"
-              alt=""
-            />
+            <div className="icon">
+              <img
+                width={16}
+                height={16}
+                src="/icons/basket.svg"
+                alt=""
+              />
+            </div>
             <span className="route_name">პროდუქცია</span>
           </NavLink>
           <NavLink
             to={"gifts"}
             className={({ isActive }) =>
-              isActive ? "icon active" : "icon"
+              isActive ? "route active" : "route"
             }
             onClick={toggleSidebar}
           >
-            <img
-              width={16}
-              height={16}
-              src="/icons/gift.svg"
-              alt=""
-            />
+            <div className="icon">
+              <img
+                width={16}
+                height={16}
+                src="/icons/gift.svg"
+                alt=""
+              />
+            </div>
             <span className="route_name">საჩუქრები</span>
           </NavLink>
           <NavLink
             to={"history"}
             className={({ isActive }) =>
-              isActive ? "icon active" : "icon"
+              isActive ? "route active" : "route"
             }
             onClick={toggleSidebar}
           >
-            <img
-              width={16}
-              height={16}
-              src="/icons/calendar.svg"
-              alt=""
-            />
+            <div className="icon">
+              <img
+                width={16}
+                height={16}
+                src="/icons/calendar.svg"
+                alt=""
+              />
+            </div>
             <span className="route_name">შეკვეთების ისტორია</span>
           </NavLink>
           <NavLink
             to={"info"}
             className={({ isActive }) =>
-              isActive ? "icon active" : "icon"
+              isActive ? "route active" : "route"
             }
             onClick={toggleSidebar}
           >
-            <img
-              width={16}
-              height={16}
-              src="/icons/info.svg"
-              alt=""
-            />
+            <div className="icon">
+              <img
+                width={16}
+                height={16}
+                src="/icons/info.svg"
+                alt=""
+              />
+            </div>
             <span className="route_name">ინფორმაცია</span>
           </NavLink>
+        </div>
+        <div className="user-info">
           <NavLink
-            to={"search"}
+            to={"help_center"}
             className={({ isActive }) =>
               isActive ? "icon active" : "icon"
             }
             onClick={toggleSidebar}
           >
-            <img
-              width={16}
-              height={16}
-              src="/icons/search_icon.svg"
-              alt=""
-            />
-            <span className="route_name">ძებნა</span>
+            <div className="help_center">
+              <div className="help_icon-container">
+                <img
+                  width={18}
+                  height={18}
+                  src="/icons/circle_help.svg"
+                  alt=""
+                  className="help_icon"
+                />
+              </div>
+              <span className="title">დახმარება</span>
+            </div>
           </NavLink>
-        </div>
-        <div className="user-info">
-          <div className="help_center">
-            <div className="help_icon-container">
-              <img
-                width={18}
-                height={18}
-                src="/icons/circle_help.svg"
-                alt=""
-                className="help_icon"
-              />
+          <NavLink
+            to={"profile"}
+            className={({ isActive }) =>
+              isActive ? "icon active" : "icon"
+            }
+            onClick={toggleSidebar}
+          >
+            <div className="profile">
+              <div className="user-icon">
+                <img src="/icons/user.svg" alt="" />
+              </div>
+              <span className="profile_name">სახელი</span>
             </div>
-            <span className="title">დახმარება</span>
-          </div>
-          <div className="profile">
-            <div className="user-icon">
-              <img src="/icons/user.svg" alt="" />
-            </div>
-            <span className="profile_name">სახელი</span>
-          </div>
+          </NavLink>
         </div>
       </div>
     </div>

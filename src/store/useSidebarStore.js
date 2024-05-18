@@ -1,8 +1,8 @@
 import { create } from "zustand";
 
-const useSidebarStore = create((set) => ({
+const useuseSidebarStore = create((set) => ({
   isOpen: false,
   toggleSidebar: () => set((state) => ({ isOpen: !state.isOpen })),
 }));
 
-export default useSidebarStore;
+export default useuseSidebarStore;

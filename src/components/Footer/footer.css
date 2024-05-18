@@ -1,0 +1,96 @@
+.footer_main_container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background: #020408;
+    padding: 1rem 1.25rem 1.75rem;
+    font-size: 1rem;
+    margin-top: auto;
+    width: 100%;
+}
+
+
+.footer_main_container .main_logo {
+    width: 100%;
+    transition: 0.3s ease-out;
+}
+
+.footer_main_container .main_logo:hover {
+    filter: opacity(0.7);
+}
+
+
+.footer_main_container .lists_section {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer_main_container .lists_section .list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0;
+    margin: 0;
+    margin-top: 2rem;
+    gap: 0.4375rem;
+}
+
+.footer_main_container .lists_section .list li {
+    font-size: 0.75em;
+    font-weight: 200;
+    color: rgba(255, 255, 255, 0.63);
+    transition: 0.3s ease-out;
+}
+
+.footer_main_container .lists_section .list li:hover {
+    color: white;
+}
+
+.footer_main_container .copyright {
+    width: 100%;
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 0.625em;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.44);
+}
+
+
+@media screen and (min-width: 1280px) {
+    .footer_main_container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 2.3125rem 4.625rem 4.125rem 7rem !important;
+        width: 100%;
+    }
+
+    .footer_main_container .main_logo {
+        width: fit-content;
+        height: fit-content;
+        flex-grow: 1;
+    }
+
+    .footer_main_container .lists_section {
+        width: fit-content;
+        height: fit-content;
+        flex-grow: 1;
+    }
+
+    .footer_main_container .lists_section .list {
+        margin-top: 0 !important;
+        gap: 0.8125rem;
+    }
+
+
+    .footer_main_container .copyright {
+        flex-grow: 1;
+        margin-top: 9.75em;
+        width: 100%;
+    }
+}
