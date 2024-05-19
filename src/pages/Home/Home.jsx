@@ -1,8 +1,64 @@
+import ProductCard from "../../components/ProductCard/ProductCard";
 import Swiper from "../../components/Swiper/Swiper";
 import { BREAK_POINT } from "../../constants/constants";
 import useScreenStore from "../../store/useScreenStore";
 import "./home.css";
 import React, { useEffect, useRef, useState } from "react";
+
+const cardDataExample = [
+  {
+    imgUrl: "noImage.jpg",
+    consoles: ["PS5"],
+    title: "Call Of Duty Modern Warfare 3",
+    developer: "sports, simulation",
+    price: "1499,99₾",
+    id: "1",
+  },
+  {
+    imgUrl: "noImage.jpg",
+    consoles: ["PS5"],
+    title: "Call Of Duty Modern Warfare 3",
+    developer: "sports, simulation",
+    price: "1499,99₾",
+    id: "2",
+  },
+  {
+    imgUrl: "noImage.jpg",
+    consoles: ["PS5"],
+    title: "Call Of Duty Modern Warfare 3",
+    developer: "sports, simulation",
+    price: "1499,99₾",
+    id: "3",
+  },
+  {
+    imgUrl: "noImage.jpg",
+    consoles: ["PS5"],
+    title: "Call Of Duty Modern Warfare 3",
+    developer: "sports, simulation",
+    price: "1499,99₾",
+    id: "4",
+  },
+  {
+    imgUrl: "noImage.jpg",
+    consoles: ["PS5"],
+    title: "Call Of Duty Modern Warfare 3",
+    developer: "sports, simulation",
+    price: "1499,99₾",
+    oldPrice: "1700.00₾",
+    amount: 0,
+    id: "5",
+  },
+  {
+    imgUrl:
+      "https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    consoles: ["PS4", "PS5"],
+    title: "Call Of Duty Modern Warfare 3",
+    developer: "sports, simulation",
+    price: "1499,99₾",
+    oldPrice: "2499.99₾",
+    id: "6",
+  },
+];
 
 const Home = () => {
   const screenWidth = useScreenStore((state) => state.screenWidth);
@@ -55,6 +111,11 @@ const Home = () => {
           {consoleCategory} ვიდეო თამაშები
         </h2>
         <h6 className="video_games_subtitle">ყველა ჟანრში</h6>
+        <div className="game_cards_container">
+          {cardDataExample.map((data, index) => (
+            <ProductCard key={index + 100} data={data} />
+          ))}
+        </div>
       </div>
     </div>
   );

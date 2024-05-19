@@ -31,7 +31,7 @@ const Footer = () => {
 
         <ul className="list">
           <li>
-            <Link to={null}>მთავარი</Link>
+            <Link to={""}>მთავარი</Link>
           </li>
           <li>
             <Link to={null}>ციფრული თამაშები</Link>

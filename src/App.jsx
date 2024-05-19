@@ -10,6 +10,7 @@ import HelpCentre from "./pages/HelpCentre/HelpCentre";
 import Profile from "./pages/Profile/Profile";
 import useScreenWidth from "./hooks/useScreenWidth";
 import SearchResult from "./pages/SearchResult/SearchResult";
+import Product from "./pages/Product/Product";
 
 function App() {
   useScreenWidth();
@@ -19,6 +20,7 @@ function App() {
         <Route element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="products" element={<Products />} />
+          <Route path="products/:id" element={<Product />} />
           <Route path="gifts" element={<Gifts />} />
           <Route path="history" element={<History />} />
           <Route path="info" element={<Information />} />

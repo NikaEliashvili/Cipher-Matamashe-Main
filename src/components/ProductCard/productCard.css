@@ -1,0 +1,190 @@
+.product_card_outer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(161px, 200px, 275px);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: all 0.3s ease-out;
+}
+
+.product_card_outer .product_card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0.625rem;
+    font-size: 1rem;
+}
+
+.product_card_outer.discounted .product_card {
+    background: #EBA767;
+}
+
+
+
+.product_card_outer.not_in_stock .product_card {
+    filter: opacity(0.1);
+}
+
+.product_card_outer.not_in_stock .not_in_stock {
+    position: absolute;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F1F1F1;
+    font-size: 0.625em;
+}
+
+.product_card_outer.not_in_stock .not_in_stock span {
+    margin-bottom: 3rem;
+}
+
+
+
+.product_card_outer:hover,
+.product_card_outer:active {
+    transform: scale(0.98);
+}
+
+/* .product_card_outer.not_in_stock:hover,
+.product_card_outer.not_in_stock:active {
+    transform: scale(1);
+} */
+
+.product_card_outer .product_card .image_container {
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 0.909;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(190deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.13) 100%), rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.product_card_outer .product_card .image_container .image {
+    width: 100%;
+    object-fit: cover;
+    -o-object-fit: cover;
+}
+
+.product_card_outer .product_card .image_container .image.default_img {
+    width: 30px;
+    height: 30px;
+    filter: opacity(0.2);
+}
+
+.product_card_outer .product_card .product_title {
+    margin-top: 0.75rem;
+    font-size: 0.75em;
+    font-weight: 600;
+}
+
+.product_card_outer .product_card.discounted .product_title {
+    color: #1A1A1A
+}
+
+.product_card_outer .product_card .product_developer {
+    margin-top: 0.4375rem;
+    font-size: 0.6875em;
+    font-weight: 100;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.product_card_outer .product_card.discounted .product_developer {
+    color: rgba(26, 26, 26, 0.7);
+}
+
+.product_card_outer .product_card .product_prices {
+    margin-top: 0.625rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+}
+
+.product_card_outer .product_card .product_price {
+    font-size: 0.6875em;
+    font-weight: 900;
+    color: white;
+}
+
+.product_card_outer.discounted .product_card .product_price {
+    color: #1A1A1A;
+}
+
+.product_card_outer.discounted .product_card .old_price {
+    position: relative;
+    font-size: 0.625rem;
+    font-weight: 400;
+    color: rgba(26, 26, 26, 0.75);
+}
+
+.product_card_outer.discounted .product_card .old_price::before {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: -4px;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    height: 1px;
+    transform: rotate(-6deg);
+    transform-origin: left bottom;
+    background-color: #F62B2B;
+}
+
+.product_card_outer .product_card .product_consoles {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.625rem;
+    max-width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.product_card_outer .product_card .product_consoles .product_console {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.3125rem 0.625rem 0.05rem;
+    border-radius: 5rem;
+    font-size: 0.625em;
+    font-weight: 900;
+}
+
+.product_card_outer .product_card .product_consoles .product_console.PS5 {
+    background: white;
+    color: black;
+}
+
+.product_card_outer .product_card .product_consoles .product_console.PS4 {
+    background: #1355E1;
+    color: white;
+
+}
+
+
+
+@media screen and (max-width: 500px) {
+    .product_card_outer {
+        width: 161px;
+    }
+
+    .product_card_outer .product_card .product_price,
+    .product_card_outer .product_card .product_title {
+        font-weight: 500;
+    }
+
+}
