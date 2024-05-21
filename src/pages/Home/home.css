@@ -303,12 +303,43 @@
     color: rgba(255, 255, 255, 0.5);
 }
 
-.game_cards_container {
+/* .game_cards_container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 1.75rem;
+    gap: 1.875rem 1.75rem; 
+} */
+.game_cards_container {
+    display: grid;
+    justify-content: center;
     margin-top: 1.75rem;
     gap: 1.875rem 1.75rem;
 }
+
+
+
+.game_cards_container.columns-1 {
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.game_cards_container.columns-2 {
+    grid-template-columns: repeat(2, minmax(161px, auto));
+}
+
+.game_cards_container.columns-3 {
+    grid-template-columns: repeat(3, minmax(161px, 275px));
+}
+
+.game_cards_container.columns-4 {
+    grid-template-columns: repeat(4, minmax(161px, 275px));
+}
+
+.game_cards_container.columns-5 {
+    grid-template-columns: repeat(5, minmax(161px, 375px));
+}
+
+
 
 
 @media screen and (max-width: 390px) {

@@ -64,6 +64,37 @@ const Home = () => {
   const screenWidth = useScreenStore((state) => state.screenWidth);
   const [consoleCategory, setConsoleCategory] = useState("PS4");
 
+  const [numColumns, setNumColumns] = useState(5); // Initial number of columns
+
+  const contentRef = useRef(null);
+  // width: clamp(161px, 200px, 275px);
+  useEffect(() => {
+    // Function to calculate number of columns based on viewport width
+    const calculateColumns = () => {
+      const viewportWidth = window.innerWidth;
+      if (viewportWidth >= 1280) {
+        setNumColumns(5);
+      } else if (viewportWidth >= 1024) {
+        setNumColumns(4);
+      } else if (viewportWidth >= 565) {
+        setNumColumns(3);
+      } else if (viewportWidth >= 360) {
+        setNumColumns(2);
+      } else {
+        setNumColumns(1);
+      }
+    };
+
+    // Calculate columns on initial render
+    calculateColumns();
+
+    // Recalculate columns on window resize
+    window.addEventListener("resize", calculateColumns);
+    return () => {
+      window.removeEventListener("resize", calculateColumns);
+    };
+  }, []);
+
   const handleConsoleCategory = (value) => {
     setConsoleCategory(value);
   };
@@ -111,7 +142,10 @@ const Home = () => {
           {consoleCategory} ვიდეო თამაშები
         </h2>
         <h6 className="video_games_subtitle">ყველა ჟანრში</h6>
-        <div className="game_cards_container">
+        <div
+          ref={contentRef}
+          className={`game_cards_container columns-${numColumns}`}
+        >
           {cardDataExample.map((data, index) => (
             <ProductCard key={index + 100} data={data} />
           ))}
