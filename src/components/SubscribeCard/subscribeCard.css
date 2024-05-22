@@ -1,0 +1,213 @@
+.subscribe_card {
+    position: relative;
+    margin-top: 2.875rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: linear-gradient(130deg, #5316FF 0%, #6C39FF 100%);
+    border-radius: 0.625rem;
+    font-size: 1rem;
+    padding: 1.125rem 0.9375rem 0.625rem 0.3rem;
+}
+
+.subscribe_card .warriors {
+    height: 100%;
+    flex-shrink: 0;
+    flex-basis: 130px;
+}
+
+.subscribe_card .warriors .fighter_1,
+.subscribe_card .warriors .fighter_2 {
+    position: absolute;
+    bottom: 0;
+    height: calc(100% + 2rem);
+}
+
+.subscribe_card .warriors .fighter_1 {
+    z-index: 2;
+}
+
+.subscribe_card .warriors .fighter_2 {
+    transform: translate3d(70%, 0, 0);
+    z-index: 1;
+}
+
+.subscribe_card .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-shrink: 1;
+}
+
+.subscribe_card .content .title,
+.subscribe_card .content .description {
+    font-size: 0.625em;
+    width: 30ch;
+}
+
+.subscribe_card .content .title {
+    font-weight: 900;
+}
+
+.subscribe_card .content .description {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.subscribe_card .content .email_form {
+    flex-shrink: 1;
+    max-width: 515px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: white;
+    border-radius: 0.5em;
+    overflow: hidden;
+}
+
+.subscribe_card .content .email_input::placeholder {
+    font-family: inherit;
+    font-size: 1em !important;
+    font-weight: 300;
+}
+
+.subscribe_card .content .email_input {
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    padding: 0.625rem;
+    font-family: inherit;
+    font-size: 0.625em !important;
+    font-weight: 300;
+}
+
+.subscribe_card .content .email_input:focus {
+    outline: none;
+}
+
+
+.subscribe_card .content .subscribe_btn {
+    width: fit-content;
+    height: fit-content;
+    border: none;
+    border-radius: 0.5rem;
+    background: #67EB73;
+    padding: 0.5rem 0.8125rem;
+    margin: 3px;
+    margin-left: 0;
+    font-size: 0.6875em;
+    font-weight: 500;
+    color: #03070E;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+}
+
+.subscribe_card .content .subscribe_btn:hover {
+    filter: brightness(1.125);
+}
+
+.subscribe_card .content .subscribe_btn:focus {
+    outline: none;
+}
+
+.subscribe_card .content .subscribe_btn:disabled {
+    opacity: 0.7;
+    cursor: default;
+}
+
+
+.subscribe_card .content .subscribe_btn .loading_icon {
+    font-size: 1rem;
+    font-weight: 900;
+    margin: 0 1rem;
+    color: #054e0b;
+    animation: loading 0.75s infinite linear;
+}
+
+
+@keyframes loading {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+@media screen and (max-width: 390px) {
+    .subscribe_card .content .subscribe_btn {
+        font-weight: 800;
+    }
+
+    .subscribe_card .content .title {
+        font-weight: 600;
+    }
+}
+
+@media screen and (min-width: 390px) {
+
+    .subscribe_card .content .title,
+    .subscribe_card .content .description,
+    .subscribe_card .content .email_form {
+        width: 100%;
+    }
+
+    .subscribe_card .content .email_form {
+        max-width: 265px;
+    }
+
+    .subscribe_card .content .description {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+
+}
+
+@media screen and (min-width: 768px) {
+    .subscribe_card {
+        margin-top: 5rem;
+    }
+
+    .subscribe_card .content .title {
+        font-size: 0.875rem;
+    }
+
+    .subscribe_card .content .email_form {
+        max-width: 515px;
+    }
+
+}
+
+
+@media screen and (min-width: 1280px) {
+    .subscribe_card {
+        margin-top: 7rem;
+    }
+
+    .subscribe_card .content .title {
+        font-size: 1.25rem;
+    }
+
+    .subscribe_card .content .description {
+        font-size: 0.75rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .subscribe_card .content .email_form {
+        margin-bottom: 4.6875rem;
+    }
+
+    .subscribe_card .warriors {
+        flex-basis: 21ch;
+    }
+
+}

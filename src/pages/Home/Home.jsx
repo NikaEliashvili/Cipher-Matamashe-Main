@@ -1,4 +1,5 @@
 import ProductCard from "../../components/ProductCard/ProductCard";
+import SubscribeCard from "../../components/SubscribeCard/SubscribeCard";
 import Swiper from "../../components/Swiper/Swiper";
 import { BREAK_POINT } from "../../constants/constants";
 import useScreenStore from "../../store/useScreenStore";
@@ -47,6 +48,24 @@ const cardDataExample = [
     oldPrice: "1700.00₾",
     amount: 0,
     id: "5",
+  },
+  {
+    imgUrl: "noImage.jpg",
+    consoles: ["PS5"],
+    title: "Call Of Duty Modern Warfare 3",
+    developer: "sports, simulation",
+    price: "1499,99₾",
+    id: "4",
+  },
+  {
+    imgUrl:
+      "https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    consoles: ["PS4", "PS5"],
+    title: "Call Of Duty Modern Warfare 3",
+    developer: "sports, simulation",
+    price: "1499,99₾",
+    oldPrice: "2499.99₾",
+    id: "6",
   },
   {
     imgUrl:
@@ -151,6 +170,7 @@ const Home = () => {
           ))}
         </div>
       </div>
+      <SubscribeCard />
     </div>
   );
 };
