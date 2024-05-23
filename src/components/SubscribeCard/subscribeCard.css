@@ -146,7 +146,12 @@
 
 
     .subscribe_card .warriors {
-        flex-basis: 135px;
+        flex-basis: 140px;
+    }
+
+    .subscribe_card .content .description,
+    .subscribe_card .content .title {
+        width: 100%;
     }
 
 
