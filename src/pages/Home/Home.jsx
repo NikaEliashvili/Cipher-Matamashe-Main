@@ -226,7 +226,6 @@ const Home = () => {
             className="video_iframe"
             src={`https://www.youtube.com/embed/Xurs63Ccnlo?rel=0`}
             title="PS5ish 4.5.0 - Installation and tutorial"
-            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
