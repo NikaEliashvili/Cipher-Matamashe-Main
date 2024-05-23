@@ -82,11 +82,17 @@ const cardDataExample = [
 const Home = () => {
   const screenWidth = useScreenStore((state) => state.screenWidth);
   const [consoleCategory, setConsoleCategory] = useState("PS4");
+  const [accConsole, setAccConsole] = useState("PS5");
 
-  const [numColumns, setNumColumns] = useState(5); // Initial number of columns
-
+  const [numColumns, setNumColumns] = useState(5);
   const contentRef = useRef(null);
-  // width: clamp(161px, 200px, 275px);
+
+  const handleAccConsoles = (newConsole) => {
+    if (accConsole !== newConsole) {
+      setAccConsole(newConsole);
+    }
+  };
+
   useEffect(() => {
     // Function to calculate number of columns based on viewport width
     const calculateColumns = () => {
@@ -171,6 +177,62 @@ const Home = () => {
         </div>
       </div>
       <SubscribeCard />
+      <div className="acc_activation">
+        <h2 className="title">ანგარიშების აქტივაცია</h2>
+        <div className="consoles">
+          <span className="consoles_title">კონსოლები</span>
+          <div className="console_items" style={{}}>
+            <span
+              onClick={() => handleAccConsoles("PS4")}
+              className={
+                "console_item " +
+                (accConsole === "PS4" ? "active" : "")
+              }
+            >
+              PlayStation 4
+            </span>
+            <span
+              onClick={() => handleAccConsoles("PS5")}
+              className={
+                "console_item " +
+                (accConsole === "PS5" ? "active" : "")
+              }
+            >
+              PlayStation 5
+            </span>
+            <span
+              onClick={() => handleAccConsoles("Xbox")}
+              className={
+                "console_item " +
+                (accConsole === "Xbox" ? "active" : "")
+              }
+            >
+              Xbox One
+            </span>
+            <span
+              onClick={() => handleAccConsoles("Switch")}
+              className={
+                "console_item " +
+                (accConsole === "Switch" ? "active" : "")
+              }
+            >
+              Switch
+            </span>
+          </div>
+        </div>
+        <div className="video_player">
+          {/* <div className="video_player_button"></div> */}
+          <iframe
+            className="video_iframe"
+            src={`https://www.youtube.com/embed/Xurs63Ccnlo?rel=0`}
+            title="PS5ish 4.5.0 - Installation and tutorial"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </div>
     </div>
   );
 };
@@ -268,3 +330,5 @@ const SecondaryCard = (
 );
 
 export default Home;
+
+// src="https://www.youtube.com/embed/Xurs63Ccnlo?rel=0&modestbranding=1&controls=1"

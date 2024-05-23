@@ -143,11 +143,19 @@
 
 
 @media screen and (max-width: 390px) {
+
+
+    .subscribe_card .warriors {
+        flex-basis: 135px;
+    }
+
+
     .subscribe_card .content .subscribe_btn {
         font-weight: 800;
     }
 
     .subscribe_card .content .title {
+        font-size: 0.7em;
         font-weight: 600;
     }
 }
@@ -208,6 +216,18 @@
 
     .subscribe_card .warriors {
         flex-basis: 21ch;
+    }
+
+}
+
+@media screen and (min-width: 1920px) {
+    .subscribe_card .content .title {
+        font-size: 1.5rem;
+    }
+
+    .subscribe_card .content .description {
+        font-size: 1rem;
+        margin-bottom: 3rem;
     }
 
 }
