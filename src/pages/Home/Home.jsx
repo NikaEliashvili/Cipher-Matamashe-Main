@@ -94,31 +94,18 @@ const Home = () => {
   };
 
   useEffect(() => {
-    // Function to calculate number of columns based on viewport width
-    const calculateColumns = () => {
-      const viewportWidth = window.innerWidth;
-      if (viewportWidth >= 1280) {
-        setNumColumns(5);
-      } else if (viewportWidth >= 1024) {
-        setNumColumns(4);
-      } else if (viewportWidth >= 565) {
-        setNumColumns(3);
-      } else if (viewportWidth >= 360) {
-        setNumColumns(2);
-      } else {
-        setNumColumns(1);
-      }
-    };
-
-    // Calculate columns on initial render
-    calculateColumns();
-
-    // Recalculate columns on window resize
-    window.addEventListener("resize", calculateColumns);
-    return () => {
-      window.removeEventListener("resize", calculateColumns);
-    };
-  }, []);
+    if (screenWidth >= 1280) {
+      setNumColumns(5);
+    } else if (screenWidth >= 1024) {
+      setNumColumns(4);
+    } else if (screenWidth >= 565) {
+      setNumColumns(3);
+    } else if (screenWidth >= 360) {
+      setNumColumns(2);
+    } else {
+      setNumColumns(1);
+    }
+  }, [screenWidth]);
 
   const handleConsoleCategory = (value) => {
     setConsoleCategory(value);

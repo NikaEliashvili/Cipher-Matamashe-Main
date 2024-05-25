@@ -255,7 +255,56 @@
     padding: 1rem 2rem;
 }
 
+.product_page .section_2 {
+    margin-top: 2.75rem;
+    margin-bottom: 3rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+}
 
+.product_page .section_2 .section_2_title {
+    font-size: 0.9375em;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.product_page .section_2 .section_2_subtitle {
+    font-size: 0.75em;
+    font-weight: 300;
+    margin-top: 0.375rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.product_page .section_2 .related_video_games {
+    margin-top: 1.375rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.product_page .section_2 .product_cards_container {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-shrink: 1;
+    gap: 1.75rem;
+}
+
+.product_page .section_2 .product_cards_container .related_video_game {
+    flex-grow: 1 !important;
+    width: 100%;
+}
+
+
+.product_page .section_2 .product_cards_container .empty_cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+}
 
 @media screen and (max-width: 390px) {
 
@@ -301,6 +350,18 @@
         width: fit-content;
         flex-shrink: 0;
     }
+
+    .product_page .section_2 {
+        font-size: 1.067rem;
+        margin-top: 5.1875rem;
+        margin-bottom: 6.8125rem;
+    }
+
+    .product_page .section_2 .related_video_games {
+        margin-top: 0;
+    }
+
+
 }
 
 @media screen and (min-width: 1133px) {
@@ -308,7 +369,6 @@
         width: 100%;
         flex-direction: row;
         gap: 1rem;
-        /* max-height: 500px; */
     }
 
     .product_page .section_1 .carousel {
@@ -326,8 +386,33 @@
         flex-shrink: 1;
         width: fit-content;
     }
+
+    .product_page .section_2 {
+        font-size: 1.125rem;
+        margin-top: 2.5rem;
+        margin-bottom: 4.875rem;
+    }
+
+    .product_page .section_2 .related_video_games {
+        margin-top: 1.875rem;
+    }
 }
 
+@media screen and (min-width: 1280px) {
+    .product_page .section_2 {
+        font-size: 1.067rem;
+        margin-top: 4.125rem;
+        margin-bottom: 4.125rem;
+    }
+
+    .product_page .section_2 .section_2_subtitle {
+        font-size: 0.59em;
+    }
+
+    .product_page .section_2 .related_video_games {
+        margin-top: 0;
+    }
+}
 
 
 @media screen and (min-width: 1920px) {
@@ -337,6 +422,20 @@
 
     .product_page .content>.game_title {
         font-size: 1.3em;
+    }
+
+    .product_page .section_2 {
+        font-size: 1.47rem;
+        margin-top: 9.125rem;
+        margin-bottom: 8.75rem;
+    }
+
+    .product_page .section_2 .section_2_subtitle {
+        font-size: 0.65em;
+    }
+
+    .product_page .section_2 .related_video_games {
+        margin-top: 0;
     }
 
 }

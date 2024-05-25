@@ -85,7 +85,7 @@ const Swiper = ({ children, showArrows = true, onSlideChange }) => {
         </div>
       )}
       <div className="swiper-container" ref={swiperContainerRef}>
-        {React.Children.map(children, (child, index) => (
+        {children.map((child, index) => (
           <div className="swiper-slide" key={index + 100}>
             {child}
           </div>

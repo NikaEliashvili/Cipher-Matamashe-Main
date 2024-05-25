@@ -188,14 +188,29 @@
 
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 380px) {
     .product_card_outer {
         width: 100% !important;
-        font-size: 1.7rem !important;
+        font-size: 1.75rem !important;
     }
 
+    .product_card_outer .product_card {
+        padding: 1.5rem;
+    }
+
+    .product_card_outer .product_card .product_consoles {
+        top: 0.5rem;
+        right: 0.825rem;
+    }
+
+    .product_card_outer .product_card .product_console {
+        font-size: 0.8em !important;
+        font-weight: 600 !important;
+    }
+
+
     .product_card_outer .product_card .image_container {
-        aspect-ratio: 1.05;
+        aspect-ratio: 0.9;
     }
 
 }

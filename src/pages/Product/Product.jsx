@@ -1,15 +1,108 @@
 import { useParams } from "react-router-dom";
 import "./product.css";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ImageCarousel from "../../components/ImageCarousel/ImageCarousel";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import Swiper from "../../components/Swiper/Swiper";
+import ProductCard from "../../components/ProductCard/ProductCard";
+import useScreenStore from "../../store/useScreenStore";
+
+const RELATED_VIDEO_GAMES = [
+  {
+    imgUrl: "noImage.jpg",
+    consoles: ["PS5"],
+    title: "Call Of Duty Modern Warfare 3",
+    developer: "sports, simulation",
+    price: "1499,99₾",
+    id: "0",
+  },
+  {
+    imgUrl: "noImage.jpg",
+    consoles: ["PS5"],
+    title: "Call Of Duty Modern Warfare 3",
+    developer: "sports, simulation",
+    price: "1499,99₾",
+    id: "1",
+  },
+  {
+    imgUrl: "noImage.jpg",
+    consoles: ["PS5"],
+    title: "Call Of Duty Modern Warfare 3",
+    developer: "sports, simulation",
+    price: "1499,99₾",
+    id: "2",
+  },
+  {
+    imgUrl: "noImage.jpg",
+    consoles: ["PS5"],
+    title: "Call Of Duty Modern Warfare 3",
+    developer: "sports, simulation",
+    price: "1499,99₾",
+    id: "3",
+  },
+  {
+    imgUrl: "noImage.jpg",
+    consoles: ["PS5"],
+    title: "Call Of Duty Modern Warfare 3",
+    developer: "sports, simulation",
+    price: "1499,99₾",
+    oldPrice: "1700.00₾",
+    amount: 0,
+    id: "4",
+  },
+  {
+    imgUrl: "noImage.jpg",
+    consoles: ["PS5"],
+    title: "Call Of Duty Modern Warfare 3",
+    developer: "sports, simulation",
+    price: "1499,99₾",
+    id: "5",
+  },
+  {
+    imgUrl:
+      "https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    consoles: ["PS4", "PS5"],
+    title: "Call Of Duty Modern Warfare 3",
+    developer: "sports, simulation",
+    price: "1499,99₾",
+    oldPrice: "2499.99₾",
+    id: "6",
+  },
+  {
+    imgUrl:
+      "https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    consoles: ["PS4", "PS5"],
+    title: "Call Of Duty Modern Warfare 3",
+    developer: "sports, simulation",
+    price: "1499,99₾",
+    oldPrice: "2499.99₾",
+    id: "7",
+  },
+];
+
+const groupingArray = (array, size) => {
+  let newArr = [...array];
+  if (array.length % size !== 0) {
+    const amount =
+      size * Math.ceil(array.length / size) - array.length;
+    const emptyArray = new Array(amount).fill(null);
+    newArr = [...newArr, ...emptyArray];
+  }
+  const result = [];
+  for (let i = 0; i < newArr.length; i += size) {
+    result.push(newArr.slice(i, i + size));
+  }
+  return result;
+};
 
 const Product = () => {
   const { id } = useParams();
+  const screenWidth = useScreenStore((state) => state.screenWidth);
   const [productAmount, setProductAmount] = useState(1);
   const PRODUCT_PRICE = 1999.99;
   const [productPrice, setProductPrice] = useState(PRODUCT_PRICE);
+  const [columnsInSwiper, setColumnsInSwiper] = useState(2);
 
   const categoriesExample = ["sports", "actions"];
   const langsExample = [
@@ -31,6 +124,25 @@ const Product = () => {
     setProductPrice(PRODUCT_PRICE * (productAmount - 1));
     setProductAmount((prevAmount) => prevAmount - 1);
   };
+
+  const productCardsArray = groupingArray(
+    RELATED_VIDEO_GAMES,
+    columnsInSwiper
+  );
+
+  useEffect(() => {
+    if (screenWidth >= 1920) {
+      setColumnsInSwiper(5);
+    } else if (screenWidth >= 1024) {
+      setColumnsInSwiper(4);
+    } else if (screenWidth >= 550) {
+      setColumnsInSwiper(3);
+    } else if (screenWidth >= 390) {
+      setColumnsInSwiper(2);
+    } else {
+      setColumnsInSwiper(1);
+    }
+  }, [screenWidth]);
 
   return (
     <div className="product_page">
@@ -167,6 +279,27 @@ const Product = () => {
         <div className="subtitles_langs">
           <h3 className="subtitles_langs_title">ტიტრები</h3>
           <p className="langs">{langsExample.join(", ")}</p>
+        </div>
+      </div>
+      <div className="section_2">
+        <h2 className="section_2_title">მსგავსი ვიდეო თამაშები</h2>
+        <h2 className="section_2_subtitle">ჟანრის მიხედვით</h2>
+        <div className="related_video_games">
+          <Swiper>
+            {productCardsArray.map((slider, index) => (
+              <div key={index} className="product_cards_container">
+                {slider.map((game, index) =>
+                  game ? (
+                    <div key={index} className="related_video_game">
+                      <ProductCard data={game} />
+                    </div>
+                  ) : (
+                    <div key={index} className="empty_cont"></div>
+                  )
+                )}
+              </div>
+            ))}
+          </Swiper>
         </div>
       </div>
     </div>

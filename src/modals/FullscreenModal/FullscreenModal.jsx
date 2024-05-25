@@ -39,7 +39,7 @@ const FullscreenModal = ({ isOpen, onClose, image }) => {
       const timer = setTimeout(() => {
         setShouldRender(false);
         document.body.classList.remove("no-scroll");
-      }, 350);
+      }, 150);
       return () => {
         document.body.classList.remove("no-scroll");
         clearTimeout(timer);

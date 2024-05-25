@@ -31,6 +31,7 @@
 
 .swiper-slide {
     flex: 0 0 100%;
+    height: fit-content !important;
     scroll-snap-align: center;
 }
 
