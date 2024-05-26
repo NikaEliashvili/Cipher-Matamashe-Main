@@ -3,6 +3,35 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    scroll-behavior: auto !important;
+}
+
+
+.product_page .go_back_container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+    width: 100%;
+}
+
+
+.product_page .go_back_container .prev_btn {
+    background-color: #171F2D;
+    color: whitesmoke;
+    font-size: 1.25em;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em 0.7em;
+    border-radius: 0.375em;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+.product_page .go_back_container .prev_btn:hover {
+    filter: brightness(1.25);
 }
 
 .product_page .section_1 {

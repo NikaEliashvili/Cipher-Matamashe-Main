@@ -23,16 +23,6 @@ const FullscreenModal = ({ isOpen, onClose, image }) => {
 
   useEffect(() => {
     if (isOpen) {
-    } else {
-    }
-
-    return () => {
-      document.body.classList.remove("no-scroll");
-    };
-  }, [isOpen]);
-
-  useEffect(() => {
-    if (isOpen) {
       document.body.classList.add("no-scroll");
       setShouldRender(true);
     } else {

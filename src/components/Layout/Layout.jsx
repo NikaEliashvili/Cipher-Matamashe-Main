@@ -4,6 +4,7 @@ import Sidebar from "../Sidebar/Sidebar";
 import "./layout.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import ScrollUp from "../ScrollUp/ScrollUp";
 
 const Layout = () => {
   return (
@@ -16,6 +17,7 @@ const Layout = () => {
         </div>
         <Footer />
       </div>
+      <ScrollUp />
     </div>
   );
 };

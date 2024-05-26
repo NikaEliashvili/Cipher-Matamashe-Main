@@ -3,7 +3,11 @@ import "./product.css";
 
 import React, { useEffect, useState } from "react";
 import ImageCarousel from "../../components/ImageCarousel/ImageCarousel";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import {
+  IoIosArrowBack,
+  IoIosArrowForward,
+  IoMdArrowRoundBack,
+} from "react-icons/io";
 import Swiper from "../../components/Swiper/Swiper";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import useScreenStore from "../../store/useScreenStore";
@@ -130,6 +134,10 @@ const Product = () => {
     columnsInSwiper
   );
 
+  const handlePreviousPage = () => {
+    window.history.back();
+  };
+
   useEffect(() => {
     if (screenWidth >= 1920) {
       setColumnsInSwiper(5);
@@ -144,9 +152,21 @@ const Product = () => {
     }
   }, [screenWidth]);
 
+  useEffect(() => {
+    // Open the page from the top
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, [id]);
+
   return (
     <div className="product_page">
-      <p>პროდუქტის ID: {id}</p>
+      <div className="go_back_container">
+        <abbr title="წინა გვერდზე გადასვლა">
+          <button className="prev_btn" onClick={handlePreviousPage}>
+            <IoMdArrowRoundBack />
+          </button>
+        </abbr>
+        <p>პროდუქტის ID: {id}</p>
+      </div>
       <div className="section_1">
         <div className="carousel">
           <ImageCarousel images={images} />

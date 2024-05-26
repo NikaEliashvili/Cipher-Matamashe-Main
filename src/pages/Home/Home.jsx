@@ -100,7 +100,7 @@ const Home = () => {
       setNumColumns(4);
     } else if (screenWidth >= 565) {
       setNumColumns(3);
-    } else if (screenWidth >= 360) {
+    } else if (screenWidth >= 376) {
       setNumColumns(2);
     } else {
       setNumColumns(1);

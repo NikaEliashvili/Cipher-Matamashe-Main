@@ -87,6 +87,7 @@
     color: white;
     margin-top: 70px;
     padding-left: 0.3125rem;
+    overflow-y: auto;
 }
 
 .sidebar_frame .routes .route {

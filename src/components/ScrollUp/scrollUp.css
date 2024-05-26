@@ -1,0 +1,43 @@
+.layout .scroll_up {
+    position: fixed;
+    bottom: 3rem;
+    right: -4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    padding: 0.75rem 0.625rem;
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 300;
+    background: rgba(255, 255, 255, 0.03);
+    border: none;
+    color: white;
+    border-radius: 0.625rem;
+    cursor: pointer;
+    z-index: +99999999;
+    filter: brightness(0);
+    transform: rotate(90deg);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+    transition: all 0.35s ease-out;
+}
+
+
+.layout .scroll_up.visible {
+    right: -1rem;
+    filter: brightness(1);
+    transition: all 0.35s ease-out;
+}
+
+
+.layout .scroll_up .arrow_icon {
+    font-size: 0.75rem;
+    color: #67EB73;
+}
+
+.layout .scroll_up:hover {
+    background-color: rgba(255, 255, 255, 1);
+    color: #1B1B1B;
+
+}
