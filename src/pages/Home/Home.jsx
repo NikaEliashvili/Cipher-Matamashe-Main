@@ -6,7 +6,7 @@ import useScreenStore from "../../store/useScreenStore";
 import "./home.css";
 import React, { useEffect, useRef, useState } from "react";
 
-const cardDataExample = [
+export const cardDataExample = [
   {
     imgUrl: "noImage.jpg",
     consoles: ["PS5"],

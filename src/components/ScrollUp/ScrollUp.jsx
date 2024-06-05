@@ -18,7 +18,7 @@ const ScrollUp = () => {
     if (isVisible) {
       const timer = setTimeout(() => {
         setShouldRender(true);
-      }, 10);
+      }, 300);
       return () => clearTimeout(timer);
     } else {
       const timer = setTimeout(() => {

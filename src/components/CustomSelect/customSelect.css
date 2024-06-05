@@ -1,0 +1,116 @@
+.custom-select {
+    position: relative;
+    display: inline-block;
+}
+
+.select-display {
+    min-width: 25ch;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.625rem 0.5rem;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.17);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 0.625rem;
+    font-weight: 400;
+    color: white;
+    transition: 0.3s ease-in;
+}
+
+.select-display:hover {
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+}
+
+.select-display.focused {
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+}
+
+.select-arrow {
+    font-size: 0.3125rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s;
+}
+
+.select-arrow.open {
+    transform: rotate(180deg);
+    transform-origin: center;
+}
+
+.select-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 0.5rem;
+    width: 100%;
+    border-top: none;
+    border-radius: 0.5rem;
+    background-color: #0B101C;
+    z-index: 100000000000;
+    white-space: nowrap;
+    overflow-y: auto;
+}
+
+.select-option {
+    padding: 0.75rem;
+    cursor: pointer;
+    font-size: 0.625rem;
+    font-weight: 200;
+    color: #6D7077;
+    background-color: inherit;
+}
+
+.select-option:hover,
+.select-option.selected {
+    filter: brightness(1.5);
+}
+
+@media screen and (min-width: 768px) {
+    .select-display {
+        padding: 0.95rem 0.25rem;
+        font-size: 0.5rem;
+        gap: 0.35rem;
+    }
+
+    .select-option {
+        font-size: 0.5rem;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .select-display {
+        padding: 0.95rem 0.25rem;
+        font-size: 0.75rem;
+        gap: 1.25rem;
+    }
+
+    .select-option {
+        font-size: 0.75rem;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .select-display {
+        padding: 1.25rem 2rem;
+        font-size: 1rem;
+        gap: 1.25rem;
+    }
+
+    .select-arrow {
+        font-size: 0.875rem;
+    }
+
+    .select-options {
+        margin-top: 1rem;
+    }
+
+    .select-option {
+        font-size: 1rem;
+        padding: 1.5rem 2rem;
+    }
+}
