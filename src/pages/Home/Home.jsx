@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import SubscribeCard from "../../components/SubscribeCard/SubscribeCard";
 import Swiper from "../../components/Swiper/Swiper";
@@ -246,7 +247,7 @@ const mainCard = (
       <div className="price_tags_container">
         <div className="price_container">
           <span className="price">399,99₾</span>
-          <a href="/products/1" className="more_details">
+          <Link to="/products/1" className="more_details">
             დეტალურად
             <img
               className="details_btn_icon"
@@ -255,7 +256,7 @@ const mainCard = (
               width={18}
               height={18}
             />
-          </a>
+          </Link>
         </div>
         <div className="tags">
           <span className="tag">Action-adventure</span>
@@ -295,7 +296,7 @@ const SecondaryCard = (
       <div className="price_tags_container">
         <div className="price_container">
           <span className="price">399,99₾</span>
-          <a href="/products/1" className="more_details">
+          <Link to="/products/1" className="more_details">
             დეტალურად
             <img
               className="details_btn_icon"
@@ -304,7 +305,7 @@ const SecondaryCard = (
               width={18}
               height={18}
             />
-          </a>
+          </Link>
         </div>
         <div className="tags">
           <span className="tag">Action-adventure</span>

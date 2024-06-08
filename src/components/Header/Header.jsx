@@ -8,13 +8,22 @@ import { BREAK_POINT } from "../../constants/constants";
 import useScreenStore from "../../store/useScreenStore";
 import useModalStore from "../../store/useModalStore";
 import SearchInputModal from "../../modals/SearchInputModal/SearchInputModal";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
+  const location = useLocation();
   const openSearchModal = useModalStore((state) => state.openModal);
   const screenWidth = useScreenStore((state) => state.screenWidth);
   const toggleSidebar = useuseSidebarStore(
     (state) => state.toggleSidebar
   );
+
+  if (
+    location.pathname.includes("profile/signup") ||
+    location.pathname.includes("profile/login")
+  ) {
+    return null;
+  }
 
   return (
     <div className="main_header">

@@ -1,10 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import "./footer.css";
 
 import React from "react";
 
 const Footer = () => {
+  const location = useLocation();
+
+  if (location.pathname.includes("profile")) {
+    return null;
+  }
+
   return (
     <div className="footer_main_container">
       <Link to={"/"} className="main_logo">

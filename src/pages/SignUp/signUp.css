@@ -1,0 +1,179 @@
+.signup_page {
+    width: calc(100% + 1rem);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('/images/bg-texture-medium.svg');
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.signup_page .signup_container {
+    margin: auto;
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    flex-direction: row;
+    border-radius: 2rem;
+    background: #080C13;
+    font-size: 1rem;
+}
+
+.signup_page .signup_container .video_game {
+    position: relative;
+    flex-basis: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.signup_page .signup_container .video_game img {
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+    object-fit: cover;
+
+}
+
+.signup_page .signup_container .video_game .game_link {
+    position: absolute;
+    bottom: 2em;
+    left: 2em;
+    border-radius: 2em;
+    padding: 0.5em 1.5em 0.45em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625em;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(4px);
+}
+
+.signup_page .signup_container .video_game .game_link .link_icon {
+    font-size: 1em;
+    margin-bottom: 0.125em;
+}
+
+.signup_page .signup_container .video_game .game_link .game_link_text {
+    position: relative;
+    font-size: 0.85em;
+    font-weight: 400;
+    text-decoration: underline;
+    color: #DEDEDE;
+}
+
+
+.signup_page .signup_container .signup_form {
+    max-height: 100%;
+    overflow: auto;
+    padding: 3.375em 2.75em;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5em;
+}
+
+.signup_page .signup_container .signup_form .header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85em;
+}
+
+.signup_page .signup_container .signup_form .header .title {
+    font-size: 1.5em;
+    font-weight: 900;
+}
+
+.signup_page .signup_container .signup_form .header .subtitle {
+    font-size: 1em;
+    font-weight: 400;
+    color: #A1A1A1;
+}
+
+.signup_page .signup_container .signup_form .signup_form_inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25em;
+}
+
+.signup_page .signup_container .signup_form .signup_form_inputs .agreement_checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85em;
+    margin-top: 0.75em;
+    margin-bottom: 0.5em;
+}
+
+.signup_page .signup_container .signup_form .signup_form_inputs .agreement_checkbox {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+    font-size: 0.75em;
+    font-weight: 300;
+    color: #fff;
+}
+
+.signup_page .signup_container .signup_form .signup_form_inputs .agreement_checkbox .agree_document_link {
+    color: #EBA767;
+    font-size: inherit;
+    font-weight: 300;
+    margin-left: 0.5em;
+    text-decoration: underline;
+}
+
+.signup_page .signup_container .signup_form .signup_form_inputs .register_message {
+    margin: auto;
+    font-size: 1em;
+    font-family: inherit;
+    max-width: 38ch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25em;
+}
+
+
+.signup_page .signup_container .signup_form .signup_form_inputs .register_message .register_word {
+    color: #67EB73;
+    text-decoration: underline;
+}
+
+
+@media screen and (max-width: 768px) {
+    .signup_page .signup_container {
+        font-size: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 1133px) {
+    .signup_page .signup_container {
+        font-size: 0.75rem;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .signup_page .signup_container {
+        margin-top: 2rem;
+        flex-direction: column;
+        align-items: center;
+        max-width: fit-content;
+        max-height: none;
+    }
+
+
+    .signup_page .signup_container .signup_form .header {
+        text-wrap: wrap;
+        max-width: 30ch;
+    }
+
+    .signup_page .signup_container .video_game {
+        aspect-ratio: 350 / 256;
+        flex-basis: auto;
+        flex-shrink: 1;
+    }
+}

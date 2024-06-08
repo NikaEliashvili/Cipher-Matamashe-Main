@@ -1,0 +1,30 @@
+.custom_button {
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 1em;
+    padding: 0.75em 1em;
+    border-radius: 0.5em;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+}
+
+.custom_button.primary {
+    color: #202020;
+    background: #67EB73;
+}
+
+.custom_button.primary:hover {
+    background: #93FF9C;
+}
+
+.custom_button.disabled {
+    background: #e4e4e4;
+    color: #6a6c6a;
+    filter: opacity(0.6);
+}
+
+.custom_button.disabled:hover {
+    cursor: default !important;
+    background: #e4e4e4 !important;
+}

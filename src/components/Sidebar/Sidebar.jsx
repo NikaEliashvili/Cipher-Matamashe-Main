@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./sidebar.css";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useuseSidebarStore from "../../store/useSidebarStore";
 import { BREAK_POINT } from "../../constants/constants";
 import useScreenStore from "../../store/useScreenStore";
@@ -8,6 +8,7 @@ import useScreenStore from "../../store/useScreenStore";
 const Sidebar = () => {
   const screenWidth = useScreenStore((state) => state.screenWidth);
   const containerRef = useRef(null);
+  const [userName, setUserName] = useState(null);
   const [position, setPosition] = useState(null);
   const [isAbbrOpen, setIsAbbrOpen] = useState(false);
   const isOpen = useuseSidebarStore((state) => state.isOpen);
@@ -148,9 +149,9 @@ const Sidebar = () => {
             </div>
 
             <hr className="line bottom" />
-            <div className="user-icon">
+            <Link to={"profile"} className="user-icon">
               <img src="/icons/user.svg" alt="" />
-            </div>
+            </Link>
           </div>
         </div>
       </div>
@@ -285,7 +286,9 @@ const Sidebar = () => {
               <div className="user-icon">
                 <img src="/icons/user.svg" alt="" />
               </div>
-              <span className="profile_name">სახელი</span>
+              <span className="profile_name">
+                {userName || "შესვლა"}
+              </span>
             </div>
           </NavLink>
         </div>
