@@ -7,6 +7,12 @@
     background: #03070E;
 }
 
+.layout.bg {
+    background: url('/images/bg-texture-medium.svg') #03070E !important;
+    background-position: right;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+}
 
 
 .header_outlet-container {

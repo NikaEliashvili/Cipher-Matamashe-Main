@@ -43,7 +43,7 @@ const ScrollUp = () => {
   }, []);
 
   if (!isVisible && !shouldRender) return null;
-  console.log({ isVisible, shouldRender });
+
   return (
     <button
       onClick={scrollToTop}

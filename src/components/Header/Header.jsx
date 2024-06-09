@@ -18,12 +18,12 @@ const Header = () => {
     (state) => state.toggleSidebar
   );
 
-  if (
-    location.pathname.includes("profile/signup") ||
-    location.pathname.includes("profile/login")
-  ) {
-    return null;
-  }
+  // if (
+  //   location.pathname.includes("profile/signup") ||
+  //   location.pathname.includes("profile/signin")
+  // ) {
+  //   return null;
+  // }
 
   return (
     <div className="main_header">

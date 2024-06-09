@@ -11,8 +11,8 @@ import Profile from "./pages/Profile/Profile";
 import useScreenWidth from "./hooks/useScreenWidth";
 import SearchResult from "./pages/SearchResult/SearchResult";
 import Product from "./pages/Product/Product";
-import AuthRequired from "./components/AuthRequired/AuthRequired";
 import SignUp from "./pages/SignUp/SignUp";
+import SignIn from "./pages/SignIn/SignIn";
 
 function App() {
   useScreenWidth();
@@ -27,10 +27,9 @@ function App() {
           <Route path="history" element={<History />} />
           <Route path="info" element={<Information />} />
           <Route path="help_center" element={<HelpCentre />} />
-          <Route element={<AuthRequired />}>
-            <Route path="profile" element={<Profile />} />
-            <Route path="profile/signup" element={<SignUp />} />
-          </Route>
+          <Route path="profile" element={<Profile />} />
+          <Route path="profile/signin" element={<SignIn />} />
+          <Route path="profile/signup" element={<SignUp />} />
           <Route path="search" element={<SearchResult />} />
         </Route>
       </Routes>

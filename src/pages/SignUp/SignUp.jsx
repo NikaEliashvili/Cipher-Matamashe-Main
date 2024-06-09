@@ -1,11 +1,14 @@
 import "./signUp.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TbExternalLink } from "react-icons/tb";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/Input/Input";
 import { phoneNumberFormatterWithCursor } from "../../utils/phoneNumberFormatter";
 import Button from "../../components/Button/Button";
+import useAuthStore from "../../store/useAuthStore";
 const SignUp = () => {
+  const navigate = useNavigate();
+  const { login, isLoggedIn, username } = useAuthStore();
   const [cursorPosition, setCursorPosition] = useState(0);
   const [error, setError] = useState({
     login: "",
@@ -64,6 +67,10 @@ const SignUp = () => {
     console.log(signUpForm);
   };
 
+  useEffect(() => {
+    navigate("/profile");
+  }, [isLoggedIn]);
+
   return (
     <div className="signup_page">
       <div className="signup_container">
@@ -78,7 +85,7 @@ const SignUp = () => {
           <div className="header">
             <h2 className="title">რეგისტრაცია</h2>
             <p className="subtitle">
-              გაიარეთ რეგისტრაცია მაქსიმალური გამოცდილებსათვის
+              გაიარეთ რეგისტრაცია მაქსიმალური გამოცდილებისთვის
             </p>
           </div>
           <div className="signup_form_inputs">
@@ -170,7 +177,7 @@ const SignUp = () => {
             <Button type="submit">რეგისტრაცია</Button>
             <p className="register_message">
               უკვე გაქვთ ანგარიში? გაიარეთ
-              <Link to={"/signin"} className="register_word">
+              <Link to={"/profile/signin"} className="register_word">
                 ავტორიზაცია
               </Link>
             </p>

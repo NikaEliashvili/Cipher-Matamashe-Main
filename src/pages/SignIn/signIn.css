@@ -1,17 +1,13 @@
-.signup_page {
+.signin_page {
     width: calc(100%);
     height: calc(100vh - 90px);
     margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('/images/bg-texture-medium.svg');
-    background-position: top;
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
-.signup_page .signup_container {
+.signin_page .signin_container {
     margin: auto;
     max-width: 100%;
     max-height: 90%;
@@ -22,7 +18,7 @@
     font-size: 1rem;
 }
 
-.signup_page .signup_container .video_game {
+.signin_page .signin_container .video_game {
     position: relative;
     flex-basis: 70%;
     display: flex;
@@ -31,7 +27,7 @@
     overflow: hidden;
 }
 
-.signup_page .signup_container .video_game img {
+.signin_page .signin_container .video_game img {
     width: 100%;
     height: 100%;
     border-radius: 2rem;
@@ -39,7 +35,7 @@
 
 }
 
-.signup_page .signup_container .video_game .game_link {
+.signin_page .signin_container .video_game .game_link {
     position: absolute;
     bottom: 2em;
     left: 2em;
@@ -53,12 +49,12 @@
     backdrop-filter: blur(4px);
 }
 
-.signup_page .signup_container .video_game .game_link .link_icon {
+.signin_page .signin_container .video_game .game_link .link_icon {
     font-size: 1em;
     margin-bottom: 0.125em;
 }
 
-.signup_page .signup_container .video_game .game_link .game_link_text {
+.signin_page .signin_container .video_game .game_link .game_link_text {
     position: relative;
     font-size: 0.85em;
     font-weight: 400;
@@ -67,39 +63,40 @@
 }
 
 
-.signup_page .signup_container .signup_form {
+.signin_page .signin_container .signin_form {
     max-height: 100%;
     overflow: auto;
+    margin: auto;
     padding: 3.375em 2.75em;
     display: flex;
     flex-direction: column;
     gap: 2.5em;
 }
 
-.signup_page .signup_container .signup_form .header {
+.signin_page .signin_container .signin_form .header {
     display: flex;
     flex-direction: column;
     gap: 0.85em;
 }
 
-.signup_page .signup_container .signup_form .header .title {
+.signin_page .signin_container .signin_form .header .title {
     font-size: 1.5em;
     font-weight: 900;
 }
 
-.signup_page .signup_container .signup_form .header .subtitle {
+.signin_page .signin_container .signin_form .header .subtitle {
     font-size: 1em;
     font-weight: 400;
     color: #A1A1A1;
 }
 
-.signup_page .signup_container .signup_form .signup_form_inputs {
+.signin_page .signin_container .signin_form .signin_form_inputs {
     display: flex;
     flex-direction: column;
     gap: 1.25em;
 }
 
-.signup_page .signup_container .signup_form .signup_form_inputs .agreement_checkboxes {
+.signin_page .signin_container .signin_form .signin_form_inputs .agreement_checkboxes {
     display: flex;
     flex-direction: column;
     gap: 0.85em;
@@ -107,7 +104,7 @@
     margin-bottom: 0.5em;
 }
 
-.signup_page .signup_container .signup_form .signup_form_inputs .agreement_checkbox {
+.signin_page .signin_container .signin_form .signin_form_inputs .agreement_checkbox {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -117,7 +114,7 @@
     color: #fff;
 }
 
-.signup_page .signup_container .signup_form .signup_form_inputs .agreement_checkbox .agree_document_link {
+.signin_page .signin_container .signin_form .signin_form_inputs .agreement_checkbox .agree_document_link {
     color: #EBA767;
     font-size: inherit;
     font-weight: 300;
@@ -125,7 +122,7 @@
     text-decoration: underline;
 }
 
-.signup_page .signup_container .signup_form .signup_form_inputs .register_message {
+.signin_page .signin_container .signin_form .signin_form_inputs .register_message {
     margin: auto;
     font-size: 1em;
     font-family: inherit;
@@ -138,27 +135,35 @@
 }
 
 
-.signup_page .signup_container .signup_form .signup_form_inputs .register_message .register_word {
+.signin_page .signin_container .signin_form .signin_form_inputs .register_message .register_word {
     color: #67EB73;
     text-decoration: underline;
 }
 
 
 @media screen and (max-width: 768px) {
-    .signup_page .signup_container {
+    .signin_page .signin_container {
         font-size: 0.5rem;
+    }
+
+
+    .signin_page .signin_container .video_game {
+        aspect-ratio: 2 / 1;
+        flex-basis: 100%;
+        flex-grow: 1;
+        flex-shrink: 1;
     }
 }
 
 @media screen and (max-width: 1133px) {
-    .signup_page .signup_container {
+    .signin_page .signin_container {
         font-size: 0.75rem;
     }
 }
 
 
-@media screen and (max-width: 768px) {
-    .signup_page .signup_container {
+@media screen and (max-width: 550px) {
+    .signin_page .signin_container {
         margin-top: 2rem;
         flex-direction: column;
         align-items: center;
@@ -166,16 +171,17 @@
         max-height: none;
     }
 
-    .signup_page .signup_container .signup_form {
+
+    .signin_page .signin_container .signin_form {
         width: 100%;
     }
 
-    .signup_page .signup_container .signup_form .header {
+    .signin_page .signin_container .signin_form .header {
         text-wrap: wrap;
         max-width: 30ch;
     }
 
-    .signup_page .signup_container .video_game {
+    .signin_page .signin_container .video_game {
         aspect-ratio: 350 / 256;
         flex-basis: auto;
         flex-shrink: 1;
