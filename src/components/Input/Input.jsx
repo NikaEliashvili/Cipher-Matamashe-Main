@@ -11,6 +11,7 @@ export default function Input({
   onChange,
   maxLength,
   errorMessage,
+  onClick = () => {},
 }) {
   return (
     <div className="input-component">
@@ -22,6 +23,7 @@ export default function Input({
           name={name}
           value={value}
           onChange={onChange}
+          onClick={onClick}
           id={name}
           maxLength={maxLength || null}
           required

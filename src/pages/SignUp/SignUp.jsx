@@ -3,9 +3,10 @@ import React, { useState } from "react";
 import { TbExternalLink } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import Input from "../../components/Input/Input";
-import { phoneNumberFormatter } from "../../utils/phoneNumberFormatter";
+import { phoneNumberFormatterWithCursor } from "../../utils/phoneNumberFormatter";
 import Button from "../../components/Button/Button";
 const SignUp = () => {
+  const [cursorPosition, setCursorPosition] = useState(0);
   const [error, setError] = useState({
     login: "",
     email: "",
@@ -26,13 +27,29 @@ const SignUp = () => {
   function handleChange(e) {
     const { name, value, checked, type } = e.target;
     if (name === "mobile") {
-      let mobileValue = phoneNumberFormatter(value);
+      // let mobileValue = phoneNumberFormatter(value);
+      const cursorStart = e.target.selectionStart;
+
+      const { formattedNumber, newCursorPosition } =
+        value &&
+        cursorStart &&
+        phoneNumberFormatterWithCursor(
+          value,
+          cursorStart,
+          signUpForm.mobile
+        );
 
       setSignUpForm((prev) => ({
         ...prev,
-        [name]: mobileValue.slice(0, 11),
+        [name]: formattedNumber || "",
       }));
-
+      setCursorPosition(newCursorPosition);
+      setTimeout(() => {
+        e.target.setSelectionRange(
+          newCursorPosition,
+          newCursorPosition
+        );
+      }, 0);
       return;
     }
 
@@ -82,11 +99,20 @@ const SignUp = () => {
               onChange={handleChange}
             />
             <Input
-              errorMessage={error?.mobile}
+              errorMessage={
+                signUpForm.mobile &&
+                ((signUpForm.mobile[0] !== "5" &&
+                  "მობილურის ნომერი უნდა იწყებოდეს 5-ით") ||
+                  (signUpForm.mobile.length !== 11 &&
+                    "მობილურის ნომერი უნდა შედგებოდეს 9 ციფრისგან"))
+              }
               type="text"
               label="მობილური"
               value={signUpForm.mobile}
               maxLength={11}
+              onClick={(e) =>
+                setCursorPosition(e.target.selectionStart)
+              }
               name={"mobile"}
               onChange={handleChange}
             />
