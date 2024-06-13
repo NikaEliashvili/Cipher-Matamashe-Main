@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./sidebar.css";
 import { Link, NavLink } from "react-router-dom";
-import useuseSidebarStore from "../../store/useSidebarStore";
+import usesidebarStore from "../../store/sidebarStore";
 import { BREAK_POINT } from "../../constants/constants";
-import useScreenStore from "../../store/useScreenStore";
+import useScreenStore from "../../store/screenStore";
 
 const Sidebar = () => {
   const screenWidth = useScreenStore((state) => state.screenWidth);
@@ -11,8 +11,8 @@ const Sidebar = () => {
   const [userName, setUserName] = useState(null);
   const [position, setPosition] = useState(null);
   const [isAbbrOpen, setIsAbbrOpen] = useState(false);
-  const isOpen = useuseSidebarStore((state) => state.isOpen);
-  const toggleSidebar = useuseSidebarStore(
+  const isOpen = usesidebarStore((state) => state.isOpen);
+  const toggleSidebar = usesidebarStore(
     (state) => state.toggleSidebar
   );
 
@@ -37,7 +37,13 @@ const Sidebar = () => {
     if (screenWidth > BREAK_POINT && isOpen) {
       toggleSidebar();
     }
-  }, [screenWidth]);
+
+    if (screenWidth <= BREAK_POINT && isOpen) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  }, [screenWidth, isOpen]);
 
   return screenWidth > BREAK_POINT ? (
     <>

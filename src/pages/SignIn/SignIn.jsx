@@ -4,7 +4,8 @@ import { TbExternalLink } from "react-icons/tb";
 import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
-import useAuthStore from "../../store/useAuthStore";
+import useAuthStore from "../../store/authStore";
+import validateEmail from "../../utils/validateEmail";
 const SignIn = () => {
   const navigate = useNavigate();
   const { login, isLoggedIn, username } = useAuthStore();
@@ -31,11 +32,13 @@ const SignIn = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ ...signInForm });
+    login(signInForm.email);
   };
 
   useEffect(() => {
-    navigate("/profile");
+    if (isLoggedIn) {
+      navigate("/profile");
+    }
   }, [isLoggedIn]);
 
   return (
@@ -57,18 +60,19 @@ const SignIn = () => {
           </div>
           <div className="signin_form_inputs">
             <Input
-              errorMessage={error?.email}
-              type="email"
+              errorMessage={
+                signInForm.email.length > 0 &&
+                !validateEmail(signInForm.email) &&
+                "example: testmail@mail.com"
+              }
+              type="text"
               label="ელ.ფოსტა"
               value={signInForm.email}
               name={"email"}
               onChange={handleChange}
             />
             <Input
-              errorMessage={
-                signInForm.password.length < 8 &&
-                "პაროლი უნდა შედგებოდეს მინიმუმ 8 სიმბოლოსგან"
-              }
+              errorMessage={null}
               type="password"
               label="პაროლი"
               value={signInForm.password}

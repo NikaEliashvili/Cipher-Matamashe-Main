@@ -5,7 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/Input/Input";
 import { phoneNumberFormatterWithCursor } from "../../utils/phoneNumberFormatter";
 import Button from "../../components/Button/Button";
-import useAuthStore from "../../store/useAuthStore";
+import useAuthStore from "../../store/authStore";
+import validateEmail from "../../utils/validateEmail";
 const SignUp = () => {
   const navigate = useNavigate();
   const { login, isLoggedIn, username } = useAuthStore();
@@ -68,7 +69,9 @@ const SignUp = () => {
   };
 
   useEffect(() => {
-    navigate("/profile");
+    if (isLoggedIn) {
+      navigate("/profile");
+    }
   }, [isLoggedIn]);
 
   return (
@@ -98,8 +101,12 @@ const SignUp = () => {
               onChange={handleChange}
             />
             <Input
-              errorMessage={error?.email}
-              type="email"
+              errorMessage={
+                signUpForm.email.length > 0 &&
+                !validateEmail(signUpForm.email) &&
+                "insert your email, example: testmail@mail.com"
+              }
+              type="text"
               label="ელ.ფოსტა"
               value={signUpForm.email}
               name={"email"}
@@ -133,6 +140,7 @@ const SignUp = () => {
             />
             <Input
               errorMessage={
+                signUpForm.confirmPassword.length > 0 &&
                 signUpForm.password !== signUpForm.confirmPassword
                   ? "პაროლი არ ემთხვევა"
                   : null

@@ -3,7 +3,7 @@ import "./products.css";
 import CustomSelect from "../../components/CustomSelect/CustomSelect";
 import { cardDataExample } from "../Home/Home";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import useScreenStore from "../../store/useScreenStore";
+import useScreenStore from "../../store/screenStore";
 const options = [
   { value: "newest", label: "ახალი დამატებული" },
   { value: "oldest", label: "ძველი დამატებული" },

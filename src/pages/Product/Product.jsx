@@ -3,14 +3,11 @@ import "./product.css";
 
 import React, { useEffect, useState } from "react";
 import ImageCarousel from "../../components/ImageCarousel/ImageCarousel";
-import {
-  IoIosArrowBack,
-  IoIosArrowForward,
-  IoMdArrowRoundBack,
-} from "react-icons/io";
+import { IoMdArrowRoundBack } from "react-icons/io";
 import Swiper from "../../components/Swiper/Swiper";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import useScreenStore from "../../store/useScreenStore";
+import useScreenStore from "../../store/screenStore";
+import CounterBtn from "../../components/CounterBtn/CounterBtn";
 
 const RELATED_VIDEO_GAMES = [
   {
@@ -153,7 +150,6 @@ const Product = () => {
   }, [screenWidth]);
 
   useEffect(() => {
-    // Open the page from the top
     window.scrollTo({ top: 0, behavior: "auto" });
   }, [id]);
 
@@ -222,27 +218,11 @@ const Product = () => {
             <div className="price_container">
               <div className="amount_container">
                 <span className="amount_title">რაოდენობა:</span>
-                <div className="amount_btn">
-                  <button
-                    onClick={productAmountDecrement}
-                    className={
-                      "arrow_btn " +
-                      (productAmount === 1 ? "disabled" : "")
-                    }
-                    disabled={productAmount <= 1}
-                  >
-                    <IoIosArrowBack />
-                  </button>
-                  <span className="amount_number">
-                    {productAmount}
-                  </span>
-                  <button
-                    onClick={productAmountIncrement}
-                    className={"arrow_btn "}
-                  >
-                    <IoIosArrowForward />
-                  </button>
-                </div>
+                <CounterBtn
+                  productAmountDecrement={productAmountDecrement}
+                  productAmountIncrement={productAmountIncrement}
+                  productAmount={productAmount}
+                />
               </div>
               <div className="price">
                 <span>{productPrice}₾ </span>

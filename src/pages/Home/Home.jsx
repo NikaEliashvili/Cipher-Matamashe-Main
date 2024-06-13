@@ -3,7 +3,7 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import SubscribeCard from "../../components/SubscribeCard/SubscribeCard";
 import Swiper from "../../components/Swiper/Swiper";
 import { BREAK_POINT } from "../../constants/constants";
-import useScreenStore from "../../store/useScreenStore";
+import useScreenStore from "../../store/screenStore";
 import "./home.css";
 import React, { useEffect, useRef, useState } from "react";
 

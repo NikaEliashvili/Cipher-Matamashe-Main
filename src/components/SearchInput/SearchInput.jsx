@@ -1,8 +1,8 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import "./searchInput.css";
 import React, { useState } from "react";
-import useModalStore from "../../store/useModalStore";
-import useScreenStore from "../../store/useScreenStore";
+import useModalStore from "../../store/modalStore";
+import useScreenStore from "../../store/screenStore";
 import { BREAK_POINT } from "../../constants/constants";
 
 const SearchInput = () => {

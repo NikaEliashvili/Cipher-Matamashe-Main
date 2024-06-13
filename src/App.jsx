@@ -13,6 +13,7 @@ import SearchResult from "./pages/SearchResult/SearchResult";
 import Product from "./pages/Product/Product";
 import SignUp from "./pages/SignUp/SignUp";
 import SignIn from "./pages/SignIn/SignIn";
+import Cart from "./pages/Cart/Cart";
 
 function App() {
   useScreenWidth();
@@ -23,6 +24,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="products" element={<Products />} />
           <Route path="products/:id" element={<Product />} />
+          <Route path="cart" element={<Cart />} />
           <Route path="gifts" element={<Gifts />} />
           <Route path="history" element={<History />} />
           <Route path="info" element={<Information />} />

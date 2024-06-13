@@ -1,7 +1,7 @@
 import "./searchInputModal.css";
 import React, { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import useModalStore from "../../store/useModalStore";
+import useModalStore from "../../store/modalStore";
 import SearchInput from "../../components/SearchInput/SearchInput";
 
 const SearchInputModal = () => {

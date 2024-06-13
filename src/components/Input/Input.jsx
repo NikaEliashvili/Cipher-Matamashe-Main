@@ -40,7 +40,7 @@ export default function Input({
             )
           : icon && <img className="icon" src={icon} alt="" />}
       </div>
-      {errorMessage && <p className="error-msg">{errorMessage}</p>}
+      <p className="error-msg">{errorMessage}</p>
     </div>
   );
 }

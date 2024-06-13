@@ -1,5 +1,5 @@
 .sidebar {
-    position: absolute;
+    position: fixed;
     inset: 0;
     display: flex;
     flex-direction: column;
@@ -26,7 +26,7 @@
     .sidebar.open {
         filter: brightness(1);
         transform: translate3d(0, 0, 0);
-        z-index: +1000;
+        z-index: +100000000;
     }
 }
 

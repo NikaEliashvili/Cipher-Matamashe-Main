@@ -43,6 +43,10 @@ a {
 }
 
 
+.no-scroll {
+  overflow: hidden;
+}
+
 
 
 ::-webkit-scrollbar {

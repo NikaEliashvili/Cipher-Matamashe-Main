@@ -3,10 +3,10 @@ import NotificationButton from "../NotificationButton/NotificationButton";
 import SearchInput from "../SearchInput/SearchInput";
 import "./header.css";
 import React from "react";
-import useuseSidebarStore from "../../store/useSidebarStore";
+import usesidebarStore from "../../store/sidebarStore";
 import { BREAK_POINT } from "../../constants/constants";
-import useScreenStore from "../../store/useScreenStore";
-import useModalStore from "../../store/useModalStore";
+import useScreenStore from "../../store/screenStore";
+import useModalStore from "../../store/modalStore";
 import SearchInputModal from "../../modals/SearchInputModal/SearchInputModal";
 import { useLocation } from "react-router-dom";
 
@@ -14,7 +14,7 @@ const Header = () => {
   const location = useLocation();
   const openSearchModal = useModalStore((state) => state.openModal);
   const screenWidth = useScreenStore((state) => state.screenWidth);
-  const toggleSidebar = useuseSidebarStore(
+  const toggleSidebar = usesidebarStore(
     (state) => state.toggleSidebar
   );
 

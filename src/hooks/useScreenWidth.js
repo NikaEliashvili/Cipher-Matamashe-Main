@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import useScreenStore from "../store/useScreenStore";
+import useScreenStore from "../store/screenStore";
 
 const useScreenWidth = () => {
   const setScreenWidth = useScreenStore(
